@@ -7,16 +7,16 @@ This is a single player battleship game.  The object of the game is to sink all 
 ![Imgur](https://i.imgur.com/sZAbWvC.png)
 
 ## User Expereince 
-The user will click on the grid to try and "hit" the battle ship.  
+AAU(As A User) click on the grid to try and "hit" the battle ship.  
 The field will have the following pieces that all need to be destroyed in order to win:
 1 Aircraft carrier 5x1
 1 Battleship 4x1
 1 Submarine  3x1
 2 Destroyer  2x1 
 
-The player should see every grid they've clicked if that "shot" missed there will be an item to indicate a miss.
-If the shot hit they should see an item indicate they hit, if they have sunk that ship they should see a damaged ship on the board.
-When they player wins they will have an indication that they have won, and they can press reset to play again. 
+AAU you will see every grid you have clicked if that "shot" missed there will be an item to indicate a miss.
+AAU if the shot hits you will see an item indicate they hit, if the shot has sunk that ship you will see a damaged/destroyed ship revealed on the board.
+AAU when you win you will have an indication that declares as such, and you can press reset to play again. 
 
 ## Roadmap
 Stretch goals:
