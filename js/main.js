@@ -19,11 +19,37 @@ Check winner function
 
 initiliaze function
 
+check ship sunk function
+
 Top Secret Button (if i dont randomly generate the ship placement via an api this will call on api for something TBD) */
+
+/* solving what I think will be my biggest issue with this game: placing ships randomly on the board both horizontally (easy) and vertically (much harder):
+
+If i make the board an array that contains arrays for each row i.e. a 5x5 would be 
+board [
+  [sq01, sq02, sq03, sq04, sq05],
+  [sq06, sq07, sq08, sq09, sq10],
+  [sq11, sq12, sq13, sq14, sq15],
+  [sq16, sq17, sq18, sq19, sq20],
+  [sq21, sq22, sq23, sq24, sq25],
+]
+lets assume the ship size for this is 3x1 
+I can generate a random number/coinflip that will determine if the piece will be 1(heads) horizontal or 2(tales) vertical
+
+if 1 generate a random number between 1 and 5 to determine which row(j) the ship will go
+then generate a random number between 1 and 3 as 3 would be the furthers place from the left a 3x1 ship would fit in a row.
+Before placing the piece it should call on a function that will ensure that places the ship wants to go are currently empty.
+
+if 2 generate a random number between 1 and 5 to determine which column(i) the ship will go in to 
+then generate a random number between 1 and 3 as 3 would be the furthest place from the top that the ship could be placed.
+Before placing call on a function that will ensure that places the ship wants to go are currently empty. */
+
 
 /*------Constants------*/
 // i.e. audio/picture elments that are being placed later
-
+let ships {
+  ship1: 
+}
 
 /*------Variables (state)------*/
 
@@ -47,7 +73,7 @@ Top Secret Button (if i dont randomly generate the ship placement via an api thi
 
 // On-Click function:
 // Set up what happens when one of the elements
-// is clicked
+// is clicked  hit if not hit then miss 
 
 
 // Check winner function:
@@ -60,19 +86,8 @@ Top Secret Button (if i dont randomly generate the ship placement via an api thi
 // Displays the current state of the board
 // on the page, updating the elements to reflect
 
+// check if ship is sunk function:
+// might be able to pair this with the check winner?
 
-
-// let board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ]
-
-// [01, 02, 03, 04, 05,
-//  06, 07, 08, 09, 10,
-//  11, 12, 13, 14, 15,
-//  16, 17, 18, 19, 20,
-//  21, 22, 23, 24, 25,]
-
-/* ship 1 = 2x1 
-   ship 2 = 2x1
-   ship 3 = 3x1
-
-   ship 1 & 2 can go    01-02 02-03... 24-25   but they can also go 01&&06 02&&07 ... 20&&25
-   ship 3  can go       01-03 02-04... 23-25   but it can also go   01&&06&&11 02&&07&&12 ... 15&&20&&25 */
+// avoid collision function:
+// will make sure the spaces a ship is about to be placed are empty before placing
