@@ -56,7 +56,7 @@ let ships = [
   {location: [[0,0],[0,0],[0,0]], hits: ["", "", ""]},
   {location: [[0,0],[0,0],[0,0]], hits: ["", "", ""]}
 ]
-let board, shipsSunk
+let board, shipsSunk, winner
 
 /*------Cached Element References------*/
 
@@ -80,8 +80,8 @@ function init(){
     [null, null, null, null, null, ],
     [null, null, null, null, null, ]
   ]
+  placeShips()
   messageEl.innerHTML = "Make your first move"
-  console.log("reset button clicked")
 }
 // Initialization function:
 // Where you set your initial state, setting up 
@@ -100,7 +100,11 @@ function onClick(){
 // if miss change value to 2
 
 function checkWinner(){
-
+  if board.includes("0"){
+    winner = null
+  } else {
+    winner = '1'
+  }
 }
 // Check winner function:
 // Checks the current state of the board for
@@ -123,14 +127,14 @@ function redner(){
 // // check if ship is sunk function:
 // // might be able to pair this with the check winner?
 
-function avoidCollision(){
+// function avoidCollision(){
 
-}
-// avoid collision function:
-// will make sure the spaces a ship is about to be placed are empty before placing
-// check each cell determined by the length of hte ship to see if its occupied
-// if all are null set each of those cells to 0 to represent that it is occupied
-// if any are 0 add/subtract 
+// }
+// // avoid collision function:
+// // will make sure the spaces a ship is about to be placed are empty before placing
+// // check each cell determined by the length of hte ship to see if its occupied
+// // if all are null set each of those cells to 0 to represent that it is occupied
+// // if any are 0 add/subtract 
 
 function placeShips(){
 
