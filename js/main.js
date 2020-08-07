@@ -60,9 +60,10 @@ let board, shipsSunk
 
 /*------Cached Element References------*/
 
-let highScoreEl = document.getElementById('message')
+const highScoreEl = document.getElementById('message')
 const squareEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
+const messageEl = document.getElementById('message')
 
 /*------Event Listeners------*/
 
@@ -72,18 +73,22 @@ document.querySelector('section').addEventListener('click', onClick)
 /*------Functions------*/
 
 function init(){
+  board = [
+    [null, null, null, null, null, ],
+    [null, null, null, null, null, ],
+    [null, null, null, null, null, ],
+    [null, null, null, null, null, ],
+    [null, null, null, null, null, ]
+  ]
+  messageEl.innerHTML = "Make your first move"
   console.log("reset button clicked")
 }
 // Initialization function:
 // Where you set your initial state, setting up 
 // what the board will look like upon loading
 // set board to let board = [
-//   [null, null, null, null, null, ],
-//   [null, null, null, null, null, ],
-//   [null, null, null, null, null, ],
-//   [null, null, null, null, null, ],
-//   [null, null, null, null, null, ]
-// ]
+  
+
 
 function onClick(){
 
@@ -91,6 +96,8 @@ function onClick(){
 // On-Click function:
 // Set up what happens when one of the elements
 // is clicked  hit if not hit then miss 
+// if hit change value to 1 
+// if miss change value to 2
 
 function checkWinner(){
 
@@ -99,6 +106,7 @@ function checkWinner(){
 // Checks the current state of the board for
 // a winner and changes the state of the winner
 // variable if so
+// if board does not contain any 0's declare winner
 
 function redner(){
 
@@ -106,20 +114,33 @@ function redner(){
 // Render function:
 // Displays the current state of the board
 // on the page, updating the elements to reflect
+// if spot on board is 1 place damaged img or css effect
+// if spot on board is 2 place missed img
 
-function sunk(){
+// function sunk(){
 
-}
-// check if ship is sunk function:
-// might be able to pair this with the check winner?
+// }
+// // check if ship is sunk function:
+// // might be able to pair this with the check winner?
 
 function avoidCollision(){
 
 }
 // avoid collision function:
 // will make sure the spaces a ship is about to be placed are empty before placing
+// check each cell determined by the length of hte ship to see if its occupied
+// if all are null set each of those cells to 0 to represent that it is occupied
+// if any are 0 add/subtract 
 
 function placeShips(){
 
 }
 //place ships function
+// pick and x between 0-4, pick a y between 0-4 (this will determine which array and the eindex of the aray to start the placement)
+// pick direction
+// plotting horizontally add/subtract 1 to get the index in the array that is chesen by the y
+// plotting vertically add/subtract 1 to get the array
+// if value of first x,y = null push to a temporary array
+// i++ based on length of ship 
+// if x,y != null +1 to direction and start over
+// if all values are null then change value from null to 0
