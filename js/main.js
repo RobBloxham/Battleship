@@ -111,7 +111,7 @@ function onClick(){
 // if miss change value to 2
 
 function checkWinner(){
-  if board.includes("0"){
+  if (board.includes("0")){
     winner = null
   } else {
     winner = '1'
