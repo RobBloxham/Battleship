@@ -47,20 +47,23 @@ Before placing call on a function that will ensure that places the ship wants to
 
 /*------Constants------*/
 // i.e. audio/picture elments that are being placed later
+
+
+/*------Variables (state)------*/
+
+// Variables might include (board/turn/winner)
 let ships [
   {location: [0,0],[0,0] hits:[ "", ""]}
   {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
   {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
 ]
-
-/*------Variables (state)------*/
-
-// Variables might include (board/turn/winner)
-
 let board, shipsSunk
 /*------Cached Element References------*/
 
 // You might choose to put your game status here
+let highScoreEl = document.getElementById('message')
+const squareEl = document.querySelectorAll('div')
+const resetBtn = document.getElementById('resetButton')
 
 /*------Event Listeners------*/
 
