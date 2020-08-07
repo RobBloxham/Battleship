@@ -4,7 +4,10 @@
 This is a single player battleship game.  The object of the game is to sink all of the randomly generate battleships on the grid.  Can you beat your best score?
 
 ## Visuals
+Wireframe
 ![Imgur](https://i.imgur.com/sZAbWvC.png)
+Background
+![background](images/../Images/oceanscene.png)
 
 ## User Expereince 
 AAU(As A User) click on the grid to try and "hit" the battle ship.  
