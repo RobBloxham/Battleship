@@ -47,14 +47,23 @@ Before placing call on a function that will ensure that places the ship wants to
 
 /*------Constants------*/
 // i.e. audio/picture elments that are being placed later
-let ships {
-  ship1: 
-}
+let ships [
+  {location: [0,0],[0,0] hits:[ "", ""]}
+  {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
+  {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
+]
 
 /*------Variables (state)------*/
 
 // Variables might include (board/turn/winner)
-
+let board = [
+  [null, null, null, null, null, ],
+  [null, null, null, null, null, ],
+  [null, null, null, null, null, ],
+  [null, null, null, null, null, ],
+  [null, null, null, null, null, ]
+]
+let shipsSunk
 /*------Cached Element References------*/
 
 // You might choose to put your game status here
@@ -91,3 +100,5 @@ let ships {
 
 // avoid collision function:
 // will make sure the spaces a ship is about to be placed are empty before placing
+
+//place ships function
