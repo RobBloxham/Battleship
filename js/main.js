@@ -87,8 +87,19 @@ function init(){
 // Where you set your initial state, setting up 
 // what the board will look like upon loading
 // set board to let board = [
-  
 
+function placeShips(){
+
+}
+//place ships function
+// pick and x between 0-4, pick a y between 0-4 (this will determine which array and the eindex of the aray to start the placement)
+// pick direction
+// plotting horizontally add/subtract 1 to get the index in the array that is chesen by the y
+// plotting vertically add/subtract 1 to get the array
+// if value of first x,y = null push to a temporary array
+// i++ based on length of ship 
+// if x,y != null +1 to direction and start over
+// if all values are null then change value from null to 0
 
 function onClick(){
 
@@ -121,6 +132,13 @@ function redner(){
 // if spot on board is 1 place damaged img or css effect
 // if spot on board is 2 place missed img
 
+
+
+
+
+
+
+
 // function sunk(){
 
 // }
@@ -136,15 +154,3 @@ function redner(){
 // // if all are null set each of those cells to 0 to represent that it is occupied
 // // if any are 0 add/subtract 
 
-function placeShips(){
-
-}
-//place ships function
-// pick and x between 0-4, pick a y between 0-4 (this will determine which array and the eindex of the aray to start the placement)
-// pick direction
-// plotting horizontally add/subtract 1 to get the index in the array that is chesen by the y
-// plotting vertically add/subtract 1 to get the array
-// if value of first x,y = null push to a temporary array
-// i++ based on length of ship 
-// if x,y != null +1 to direction and start over
-// if all values are null then change value from null to 0
