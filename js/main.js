@@ -51,28 +51,29 @@ Before placing call on a function that will ensure that places the ship wants to
 
 /*------Variables (state)------*/
 
-// Variables might include (board/turn/winner)
 let ships [
   {location: [0,0],[0,0] hits:[ "", ""]}
   {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
   {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
 ]
 let board, shipsSunk
+
 /*------Cached Element References------*/
 
-// You might choose to put your game status here
 let highScoreEl = document.getElementById('message')
 const squareEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 
 /*------Event Listeners------*/
 
-// This is where you should put the event listener
-// for a mouse-click
+resetBtn.addEventListener('click', init)
+document.querySelector('section').addEventListener('click', onClick)
 
 /*------Functions------*/
 
+function init(){
 
+}
 // Initialization function:
 // Where you set your initial state, setting up 
 // what the board will look like upon loading
@@ -83,26 +84,40 @@ const resetBtn = document.getElementById('resetButton')
 //   [null, null, null, null, null, ],
 //   [null, null, null, null, null, ]
 // ]
+function onClick(){
 
+}
 // On-Click function:
 // Set up what happens when one of the elements
 // is clicked  hit if not hit then miss 
 
+function checkWinner(){
 
+}
 // Check winner function:
 // Checks the current state of the board for
 // a winner and changes the state of the winner
 // variable if so
 
+function redner(){
 
+}
 // Render function:
 // Displays the current state of the board
 // on the page, updating the elements to reflect
 
+function sunk(){
+
+}
 // check if ship is sunk function:
 // might be able to pair this with the check winner?
 
+function avoidCollision(){
+
+}
 // avoid collision function:
 // will make sure the spaces a ship is about to be placed are empty before placing
+function placeShips(){
 
+}
 //place ships function
