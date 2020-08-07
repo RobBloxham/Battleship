@@ -56,14 +56,8 @@ let ships [
 /*------Variables (state)------*/
 
 // Variables might include (board/turn/winner)
-let board = [
-  [null, null, null, null, null, ],
-  [null, null, null, null, null, ],
-  [null, null, null, null, null, ],
-  [null, null, null, null, null, ],
-  [null, null, null, null, null, ]
-]
-let shipsSunk
+
+let board, shipsSunk
 /*------Cached Element References------*/
 
 // You might choose to put your game status here
@@ -79,6 +73,13 @@ let shipsSunk
 // Initialization function:
 // Where you set your initial state, setting up 
 // what the board will look like upon loading
+// set board to let board = [
+//   [null, null, null, null, null, ],
+//   [null, null, null, null, null, ],
+//   [null, null, null, null, null, ],
+//   [null, null, null, null, null, ],
+//   [null, null, null, null, null, ]
+// ]
 
 // On-Click function:
 // Set up what happens when one of the elements
