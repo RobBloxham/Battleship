@@ -51,10 +51,10 @@ Before placing call on a function that will ensure that places the ship wants to
 
 /*------Variables (state)------*/
 
-let ships [
-  {location: [0,0],[0,0] hits:[ "", ""]}
-  {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
-  {location: [0,0],[0,0],[0,0] hits:["", "", ""]}
+let ships = [
+  {location: [[0,0],[0,0]], hits: ["", ""]},
+  {location: [[0,0],[0,0],[0,0]], hits: ["", "", ""]},
+  {location: [[0,0],[0,0],[0,0]], hits: ["", "", ""]}
 ]
 let board, shipsSunk
 
@@ -84,6 +84,7 @@ function init(){
 //   [null, null, null, null, null, ],
 //   [null, null, null, null, null, ]
 // ]
+
 function onClick(){
 
 }
@@ -117,6 +118,7 @@ function avoidCollision(){
 }
 // avoid collision function:
 // will make sure the spaces a ship is about to be placed are empty before placing
+
 function placeShips(){
 
 }
