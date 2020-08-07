@@ -72,7 +72,7 @@ document.querySelector('section').addEventListener('click', onClick)
 /*------Functions------*/
 
 function init(){
-
+  console.log("reset button clicked")
 }
 // Initialization function:
 // Where you set your initial state, setting up 
