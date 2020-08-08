@@ -48,6 +48,10 @@ Before placing call on a function that will ensure that places the ship wants to
 /*------Constants------*/
 // i.e. audio/picture elments that are being placed later
 
+// on the board
+// 0 = ship
+// 1 = hit
+// x = miss
 
 /*------Variables (state)------*/
 
@@ -97,19 +101,27 @@ function getDirection(){
 }
 
 function placeShips(){
-//***horizontal*** direction = Math.floor(Math.random() * 1) + 1; will determine direction 1 horizontal 2 vertical 
-// if getDirection = 1 pick array 0 - 4 of board with Math.floor(Math.random() * 4)
+  tempArr = []
+  direction = getDirection()
+  if (direction === 1){ 
+      x = Math.floor(Math.random() * 4)
+      y = Math.floor(Math.random() * 2)
+
+  }
+}
+//***horizontal*** if get direction returns 1
+// pick array 0 - 4 of board with Math.floor(Math.random() * 4)
 // then pick index inside of array 0-2 with Math.floor(Math.random() * 2)
-// if each of the next 3 places in the index = null push to random array 
+// check each of the places (x,y)(x, y+1) and (x, y+2) in the board index = null push to random array 
 // if all indexs are in the random array push to board and set value to 0
 // if index != null try again from picking array
 
-//***vertical*** if getDirection = 2 pick array of board 0-2 with Math.floor(Math.random() * 2)
+//***vertical*** if getDirection returns 2
+// pick array of board 0-2 with Math.floor(Math.random() * 2)
 // then pick index inside of array 0-4 with Math.floor(Math.random() * 4)
 // then push each of the index's of the next 3 arrays to a temp array
 // if all indexes are in the random array push to board set value to 0
 // if index != null try again from picking array
-}
 
 
 function onClick(){
