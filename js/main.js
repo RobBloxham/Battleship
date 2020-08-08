@@ -52,15 +52,15 @@ Before placing call on a function that will ensure that places the ship wants to
 /*------Variables (state)------*/
 
 let ships = [
-  {location: [[0,0],[0,0]], hits: ["", ""]},
-  {location: [[0,0],[0,0],[0,0]], hits: ["", "", ""]},
-  {location: [[0,0],[0,0],[0,0]], hits: ["", "", ""]}
+  {location: [[0,0],[0,0],[0,0]]},
+  {location: [[0,0],[0,0],[0,0]]},
+  {location: [[0,0],[0,0],[0,0]]}
 ]
-let board, shipsSunk, winner
+let board, winner //, shipSunk
 
 /*------Cached Element References------*/
 
-const highScoreEl = document.getElementById('message')
+const highScoreEl = document.getElementById('highscore')
 const squareEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 const messageEl = document.getElementById('message')
@@ -74,11 +74,11 @@ document.querySelector('section').addEventListener('click', onClick)
 
 function init(){
   board = [
-    [null, null, null, null, null, ],
-    [null, null, null, null, null, ],
-    [null, null, null, null, null, ],
-    [null, null, null, null, null, ],
-    [null, null, null, null, null, ]
+    [null, null, null, null, null],
+    [null, null, null, null, null],
+    [null, null, null, null, null],
+    [null, null, null, null, null],
+    [null, null, null, null, null]
   ]
   placeShips()
   messageEl.innerHTML = "Make your first move"
@@ -86,20 +86,31 @@ function init(){
 // Initialization function:
 // Where you set your initial state, setting up 
 // what the board will look like upon loading
-// set board to let board = [
+// set board to nulls
+
+// function getRandom(max){
+//for each?
+//   return Math.floor(Math.random() * Math.floor(max))
+// }
+function getDirection(){
+  return Math.floor(Math.random() * 2) + 1
+}
 
 function placeShips(){
+//***horizontal*** direction = Math.floor(Math.random() * 1) + 1; will determine direction 1 horizontal 2 vertical 
+// if getDirection = 1 pick array 0 - 4 of board with Math.floor(Math.random() * 4)
+// then pick index inside of array 0-2 with Math.floor(Math.random() * 2)
+// if each of the next 3 places in the index = null push to random array 
+// if all indexs are in the random array push to board and set value to 0
+// if index != null try again from picking array
 
+//***vertical*** if getDirection = 2 pick array of board 0-2 with Math.floor(Math.random() * 2)
+// then pick index inside of array 0-4 with Math.floor(Math.random() * 4)
+// then push each of the index's of the next 3 arrays to a temp array
+// if all indexes are in the random array push to board set value to 0
+// if index != null try again from picking array
 }
-//place ships function
-// pick and x between 0-4, pick a y between 0-4 (this will determine which array and the eindex of the aray to start the placement)
-// pick direction
-// plotting horizontally add/subtract 1 to get the index in the array that is chesen by the y
-// plotting vertically add/subtract 1 to get the array
-// if value of first x,y = null push to a temporary array
-// i++ based on length of ship 
-// if x,y != null +1 to direction and start over
-// if all values are null then change value from null to 0
+
 
 function onClick(){
 
@@ -114,7 +125,7 @@ function checkWinner(){
   if (board.includes("0")){
     winner = null
   } else {
-    winner = '1'
+    winner = 'win'
   }
 }
 // Check winner function:
@@ -131,6 +142,7 @@ function redner(){
 // on the page, updating the elements to reflect
 // if spot on board is 1 place damaged img or css effect
 // if spot on board is 2 place missed img
+// render winner text if winner = win 
 
 
 
