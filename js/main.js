@@ -56,9 +56,9 @@ Before placing call on a function that will ensure that places the ship wants to
 /*------Variables (state)------*/
 
 let ships = [
-  {location: [[0,0],[0,0],[0,0]]},
-  {location: [[0,0],[0,0],[0,0]]},
-  {location: [[0,0],[0,0],[0,0]]}
+  {location: [[null, null], [null, null], [null, null]]},
+  {location: [[null, null], [null, null], [null, null]]},
+  {location: [[null, null], [null, null], [null, null]]}
 ]
 let board, winner //, shipSunk
 
@@ -77,13 +77,6 @@ document.querySelector('section').addEventListener('click', onClick)
 /*------Functions------*/
 
 function init(){
-  board = [
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null]
-  ]
   placeShips()
   messageEl.innerHTML = "Make your first move"
 }
@@ -104,8 +97,8 @@ function placeShips(size, direction){
   tempArr = []
   let locX 
   let locY 
-  direction = getDirection()
   ships.forEach(ship => {
+    direction = getDirection()
     if (direction === 1){ 
       locX = Math.floor(Math.random() * 5)
       locY = Math.floor(Math.random() * 3)
@@ -114,10 +107,60 @@ function placeShips(size, direction){
       locX = Math.floor(Math.random() * 3)
       locY = Math.floor(Math.random() * 5)
       tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
-      } 
+    } 
     console.log(tempArr)
   });
+  moveShips()
 }
+function moveShips(){
+  let board = [
+    [null, null, null, null, null],
+    [null, null, null, null, null],
+    [null, null, null, null, null],
+    [null, null, null, null, null],
+    [null, null, null, null, null]
+  ]
+  tempArr.forEach(element => {
+   //for the first number in the array find the array inside board and then for the 2nd number find the idex in the array at that position and push 0
+  });
+  console.log(board)
+}
+
+// function placeShips(size, direction){
+//   tempArr = []
+//   let locX 
+//   let locY 
+//   ships.forEach(ship => {
+//     direction = getDirection()
+//     if (tempArr.length = 3) {
+//         return;
+//     }
+//     if (direction === 1){ 
+//       createHorizontal();
+//       // checkIfOverlap();
+//       pushToArrayHor();
+//     } else {
+//       createVertical();
+//       //checkIfOverlapt();
+//       pushToArrayVert();
+//     } 
+//     console.log(tempArr)
+//   });
+// }
+// function createHorizontal() {
+//   locX = Math.floor(Math.random() * 5)
+//   locY = Math.floor(Math.random() * 3)
+// }
+// function createVertical() {
+//   locX = Math.floor(Math.random() * 3)
+//   locY = Math.floor(Math.random() * 5)
+// }
+// function pushToArrayHor() {
+//   tempArr.push([locX, locY], [locX, locY+1], [locX, locY+2])
+// }
+// function pushToArrayVert() {
+//   tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
+// }
 //***horizontal*** if get direction returns 1
 // pick array 0 - 4 of board with Math.floor(Math.random() * 5)
 // then pick index inside of array 0-2 with Math.floor(Math.random() * 3)
@@ -187,3 +230,4 @@ function redner(){
 // // if all are null set each of those cells to 0 to represent that it is occupied
 // // if any are 0 add/subtract 
 
+ 
