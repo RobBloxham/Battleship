@@ -102,16 +102,21 @@ function getDirection(){
 
 function placeShips(size, direction){
   tempArr = []
-  const locX
-  const locY
+  let locX 
+  let locY 
   direction = getDirection()
-  if (direction === 1){ 
+  ships.forEach(ship => {
+    if (direction === 1){ 
       locX = Math.floor(Math.random() * 5)
       locY = Math.floor(Math.random() * 3)
- } else {
-   locX = Math.floor(Math.random() * 3)
-   locY = Math.floor(Math.random() * 5)
- }
+      tempArr.push([locX, locY], [locX, locY+1], [locX, locY+2])
+    } else {
+      locX = Math.floor(Math.random() * 3)
+      locY = Math.floor(Math.random() * 5)
+      tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
+      } 
+    console.log(tempArr)
+  });
 }
 //***horizontal*** if get direction returns 1
 // pick array 0 - 4 of board with Math.floor(Math.random() * 5)
