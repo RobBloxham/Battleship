@@ -56,9 +56,10 @@ Before placing call on a function that will ensure that places the ship wants to
 /*------Variables (state)------*/
 
 let ships = [
-  {location: [[null, null], [null, null], [null, null]]},
-  {location: [[null, null], [null, null], [null, null]]},
-  {location: [[null, null], [null, null], [null, null]]}
+  {ship1: "1,2,3"},
+  {ship2: "1,2,3"},
+  {ship3: "1,2,3"},
+  {ship4: "1,2,3"}
 ]
 let board, winner //, shipSunk
 
@@ -77,6 +78,13 @@ document.querySelector('section').addEventListener('click', onClick)
 /*------Functions------*/
 
 function init(){
+  let board = [
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+  ]
   placeShips()
   messageEl.innerHTML = "Make your first move"
 }
@@ -93,37 +101,41 @@ function getDirection(){
   return Math.floor(Math.random() * 2) + 1
 }
 
-function placeShips(size, direction){
+function generateShips(size){
   tempArr = []
-  let locX 
-  let locY 
+  // size = 3
+  let location
   ships.forEach(ship => {
     direction = getDirection()
-    if (direction === 1){ 
-      locX = Math.floor(Math.random() * 5)
-      locY = Math.floor(Math.random() * 3)
-      tempArr.push([locX, locY], [locX, locY+1], [locX, locY+2])
-    } else {
-      locX = Math.floor(Math.random() * 3)
-      locY = Math.floor(Math.random() * 5)
-      tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
-    } 
-    console.log(tempArr)
-  });
-  moveShips()
+    if (size === 3){
+      if (direction === 1) {
+        firstLoc = Math.floor(Math.random() * 30)
+        location = (`${firstLoc}, ${firstLoc + 10}, ${firstLoc + 20}`)
+        // console.log(location)
+        tempArr.push(location)
+      } else {
+        firstLoc = Math.floor(Math.random() * 47)
+        location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}`)
+        tempArr.push(location)
+        }
+      }
+    else if (size === 4){
+
+    }
+    else if (size === 5){
+
+    }
+    // console.log(tempArr)
+  })
+  placeShips()
+  console.log(tempArr)
 }
-function moveShips(){
-  let board = [
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null]
-  ]
-  tempArr.forEach(element => {
-   //for the first number in the array find the array inside board and then for the 2nd number find the idex in the array at that position and push 0
-  });
-  console.log(board)
+ 
+
+function placeShips(){
+  tempArr.forEach(item => {
+    tempArr.splice(,)
+  })
 }
 
 // function placeShips(size, direction){
@@ -230,4 +242,20 @@ function redner(){
 // // if all are null set each of those cells to 0 to represent that it is occupied
 // // if any are 0 add/subtract 
 
- 
+// tempArr = []
+// let locX 
+// let locY 
+// ships.forEach(ship => {
+//   direction = getDirection()
+//   if (direction === 1){ 
+//     locX = Math.floor(Math.random() * 5)
+//     locY = Math.floor(Math.random() * 3)
+//     tempArr.push([locX, locY], [locX, locY+1], [locX, locY+2])
+//   } else {
+//     locX = Math.floor(Math.random() * 3)
+//     locY = Math.floor(Math.random() * 5)
+//     tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
+//   } 
+//   console.log(tempArr)
+// });
+// moveShips()
