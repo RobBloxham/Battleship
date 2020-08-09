@@ -1,7 +1,7 @@
 /* Project setup
 some of the things i will need
 on start setup game (initialize function)
-Randomly generate a winning combination (maybe there is a way i can use an api here to grab random numbers?)
+Randomly generate a winning combination/where pieces go on board (maybe there is a way i can use an api here to grab random numbers?)
 define constants 
 define variables
 store elements
@@ -100,25 +100,29 @@ function getDirection(){
   return Math.floor(Math.random() * 2) + 1
 }
 
-function placeShips(){
+function placeShips(size, direction){
   tempArr = []
+  const locX
+  const locY
   direction = getDirection()
   if (direction === 1){ 
-      x = Math.floor(Math.random() * 4)
-      y = Math.floor(Math.random() * 2)
-
-  }
+      locX = Math.floor(Math.random() * 5)
+      locY = Math.floor(Math.random() * 3)
+ } else {
+   locX = Math.floor(Math.random() * 3)
+   locY = Math.floor(Math.random() * 5)
+ }
 }
 //***horizontal*** if get direction returns 1
-// pick array 0 - 4 of board with Math.floor(Math.random() * 4)
-// then pick index inside of array 0-2 with Math.floor(Math.random() * 2)
+// pick array 0 - 4 of board with Math.floor(Math.random() * 5)
+// then pick index inside of array 0-2 with Math.floor(Math.random() * 3)
 // check each of the places (x,y)(x, y+1) and (x, y+2) in the board index = null push to random array 
 // if all indexs are in the random array push to board and set value to 0
 // if index != null try again from picking array
 
 //***vertical*** if getDirection returns 2
-// pick array of board 0-2 with Math.floor(Math.random() * 2)
-// then pick index inside of array 0-4 with Math.floor(Math.random() * 4)
+// pick array of board 0-2 with Math.floor(Math.random() * 3)
+// then pick index inside of array 0-4 with Math.floor(Math.random() * 5)
 // then push each of the index's of the next 3 arrays to a temp array
 // if all indexes are in the random array push to board set value to 0
 // if index != null try again from picking array
