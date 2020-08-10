@@ -44,6 +44,25 @@ if 2 generate a random number between 1 and 5 to determine which column(i) the s
 then generate a random number between 1 and 3 as 3 would be the furthest place from the top that the ship could be placed.
 Before placing call on a function that will ensure that places the ship wants to go are currently empty. */
 
+/*------Classes------*/
+// class Cell {
+//   constructor(
+//     id,
+//     xcor,
+//     ycor,
+//     hasShip,
+//     shipHit,
+//     hasWater,
+//     ) {
+//     this.id = id
+//     this.xcor = xcor
+//     this.ycor = ycor
+//     this.hasShip = hasShip
+//     this.shipHit = shipHit
+//     this.hasWater = hasWater
+//   }
+// }
+
 
 /*------Constants------*/
 // i.e. audio/picture elments that are being placed later
@@ -112,7 +131,7 @@ function getDirection(){
 }
 
 function generateShips(){
-  let board = [
+  board = [
     null, null, null, null, null, 
     null, null, null, null, null, 
     null, null, null, null, null, 
@@ -123,10 +142,10 @@ function generateShips(){
   generateSmall()
   generateMedium()
   generateLarge()
-console.log(board)
+  console.log(board)
 }
 
-function generateTiny(shipSize){
+function generateTiny(){
   tinyArr = []
   let location
   ships.forEach(ship => {
@@ -147,7 +166,7 @@ function generateTiny(shipSize){
   console.log(tinyArr)
 }
 
-function generateSmall(shipSize){
+function generateSmall(){
   smallArr = []
   let location
   ships.forEach(ship => {
@@ -168,7 +187,7 @@ function generateSmall(shipSize){
   console.log(smallArr)
 }
 
-function generateMedium(shipSize){
+function generateMedium(){
   medArr = []
   let location
   ships.forEach(ship => {
@@ -189,7 +208,7 @@ function generateMedium(shipSize){
   console.log(medArr)
 }
 
-function generateLarge(shipSize){
+function generateLarge(){
   largeArr = []
   let location
   ships.forEach(ship => {
@@ -209,47 +228,12 @@ function generateLarge(shipSize){
   })
   console.log(largeArr)
 }
-// function placeShips(type, location){
-//   // let joinArr = tempArr.map(loc => 
-//   //  tempArr.split(', ').join(' ')
-//   //  )
-// }
-
-// function placeShips(size, direction){
-//   tempArr = []
-//   let locX 
-//   let locY 
-//   ships.forEach(ship => {
-//     direction = getDirection()
-//     if (tempArr.length = 3) {
-//         return;
-//     }
-//     if (direction === 1){ 
-//       createHorizontal();
-//       // checkIfOverlap();
-//       pushToArrayHor();
-//     } else {
-//       createVertical();
-//       //checkIfOverlapt();
-//       pushToArrayVert();
-//     } 
-//     console.log(tempArr)
+// function placeShips(){
+//   tinyArr.forEach(ship => {
+//     parseInt(board.splice(ship, ship, ship,))
 //   });
 // }
-// function createHorizontal() {
-//   locX = Math.floor(Math.random() * 5)
-//   locY = Math.floor(Math.random() * 3)
-// }
-// function createVertical() {
-//   locX = Math.floor(Math.random() * 3)
-//   locY = Math.floor(Math.random() * 5)
-// }
-// function pushToArrayHor() {
-//   tempArr.push([locX, locY], [locX, locY+1], [locX, locY+2])
-// }
-// function pushToArrayVert() {
-//   tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
-// }
+
 //***horizontal*** if get direction returns 1
 // pick array 0 - 4 of board with Math.floor(Math.random() * 5)
 // then pick index inside of array 0-2 with Math.floor(Math.random() * 3)
