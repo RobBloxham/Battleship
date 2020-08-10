@@ -109,11 +109,11 @@ document.querySelector('section').addEventListener('click', onClick)
 
 function init(){
   let board = [
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-    null, null, null, null, null, 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
   ]
   messageEl.innerHTML = "Make your first move"
 }
@@ -131,13 +131,7 @@ function getDirection(){
 }
 
 function generateShips(){
-  board = [
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-    null, null, null, null, null, 
-  ]
+
   generateTiny()
   generateSmall()
   generateMedium()

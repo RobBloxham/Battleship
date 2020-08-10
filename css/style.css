@@ -1,6 +1,6 @@
   
 body {
-    background-image: url("https://i.imgur.com/p58LtLk.png");
+    background-image: url('images/oceanscene.png');
     height: 100vh;
     display: flex;
     flex-direction: column;
