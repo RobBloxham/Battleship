@@ -132,45 +132,42 @@ function getDirection(){
 }
 
 function generateShips(){
+  let counter
   ships.forEach(ship => {
     if (ship === 'TT'){
-      generateTiny()
+      counter = 0
+    while (counter < 1 ) {
+        if (generateTiny()){
+          counter += 1
+        }
+      }
     }
-
-  })
+  }) 
 }
 
 function generateTiny(){
   direction = getDirection()
+  if (direction === 1){
   locX = Math.floor(Math.random() * 4)
-  locY = Math.floor(Math.random() * 5)
-  console.log(locX, locY)
-  //board[locY].splice(locX, 1, 'T')
+  locY = Math.floor(Math.random() * 5) 
+  console.log(locY, locX)
+  } else if (direction !== 1){
+    locX = Math.floor(Math.random() * 5)
+    locY = Math.floor(Math.random() * 4) 
+    console.log(locY, locX)
+  }
   if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null){
     board[locY].splice(locX, 1, "T")
     board[locY].splice((locX+1), 1, 'T')
+    console.log(board)
+    return board
   } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null){
     board[locY].splice(locX, 1, "T")
     board[locY+1].splice(locX, 1, 'T')
-  }
-  console.log(board)
+    console.log(board)
+    return board
+  } 
 }
-
-      // if (board.locX, locY === null){
-      //   direction = getDirection()
-      //   function checkCol(locX, locY){
-      //     if (board[locX[locY+ 1]]){
-      //       board.splice(locX, locY, 1, 'T')
-       
-      //   }
-      // }
-  // create initial x,y use that to check if that spot is null then check if 
-    // for each element in tinyArr
-    // index 0 access the value of that index equal to the nested array inside of board
-    // index 1 etc access the value of that index equal to the index inside the previously accessed nested array
-    // check if null
-    // if all positions equal null, push T to the accessed spots 
-    // else run the entire function again 
 
 
 function generateSmall(){
@@ -237,6 +234,15 @@ function generateLarge(){
   })
   console.log(largeArr)
 }
+
+  // create initial x,y use that to check if that spot is null then check if 
+    // for each element in tinyArr
+    // index 0 access the value of that index equal to the nested array inside of board
+    // index 1 etc access the value of that index equal to the index inside the previously accessed nested array
+    // check if null
+    // if all positions equal null, push T to the accessed spots 
+    // else run the entire function again 
+
 // function placeShips(){
 //   tinyArr.forEach(ship => {
 //     parseInt(board.splice(ship, ship, ship,))
