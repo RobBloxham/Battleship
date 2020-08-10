@@ -71,11 +71,11 @@ Before placing call on a function that will ensure that places the ship wants to
 // 0 = ship
 // 1 = hit
 // x = miss
-const game = {
-  'ship': '0',
-  'hit': '1',
-  'miss': '2'
-}
+// const game = {
+//   'ship': '0',
+//   'hit': '1',
+//   'miss': '2'
+// }
 const pieces = {
 'tinyShip': 'TT',
 'smallShip': 'SSS',
@@ -88,10 +88,17 @@ let ships = [
   pieces.tinyShip,
   pieces.smallShip,
   pieces.smallShip,
-  pieces.mediumShip,
+  pieces.tinyShip,
 ]
 let shipSize = ships.map(size => size.length)
-let board, winner //, shipSunk
+let winner //board, shipSunk
+let board = [
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+]
 
 /*------Cached Element References------*/
 
@@ -108,13 +115,7 @@ document.querySelector('section').addEventListener('click', onClick)
 /*------Functions------*/
 
 function init(){
-  let board = [
-    [null, null, null, null, null], 
-    [null, null, null, null, null], 
-    [null, null, null, null, null], 
-    [null, null, null, null, null], 
-    [null, null, null, null, null], 
-  ]
+
   messageEl.innerHTML = "Make your first move"
 }
 // Initialization function:
@@ -146,20 +147,36 @@ function generateTiny(){
     direction = getDirection()
       if (ship === 'TT'){
         if (direction === 1) {
-          firstLoc = Math.floor(Math.random() * 20)
-          location = (`${firstLoc}, ${firstLoc + 5}`)
+          locX = Math.floor(Math.random() * 4)
+          locY = Math.floor(Math.random() * 5)
+          location = [[locX, locY], [locX +1, locY],]
           tinyArr.push(location)
         } else {
-          row = Math.floor(Math.random() * 5) * 5
-          firstLoc = Math.floor(Math.random() * 4) + row
-          location = (`${firstLoc}, ${firstLoc + 1}`)
+          locX = Math.floor(Math.random() * 5)
+          locY = Math.floor(Math.random() * 4)
+          location = [[locX, locY], [locX, locY +1],]
           tinyArr.push(location)
           }
       }
     })
-  console.log(tinyArr)
-}
+    // create initial x,y use that to check if that spot is null then check if 
+    // for each element in tinyArr
+    // index 0 access the value of that index equal to the nested array inside of board
+    // index 1 etc access the value of that index equal to the index inside the previously accessed nested array
+    // check if null
+    // if all positions equal null, push T to the accessed spots 
+    // else run the entire function again 
+    console.log(tinyArr)
+    // tinyArr.forEach(element => {
+    //   if ( board[[]] === null){
+    //     board.replace('T')
+    //   } else {
 
+    //   }
+
+    // });
+  console.log(board)
+}
 function generateSmall(){
   smallArr = []
   let location
@@ -167,13 +184,14 @@ function generateSmall(){
     direction = getDirection()
       if (ship === 'SSS'){
         if (direction === 1) {
-          firstLoc = Math.floor(Math.random() * 15)
-          location = (`${firstLoc}, ${firstLoc + 5}, ${firstLoc + 10}`)
+          locX = Math.floor(Math.random() * 3)
+          locY = Math.floor(Math.random() * 5)
+          location = [locX, locY, locX +1, locY, locX +2, locY]
           smallArr.push(location)
        } else {
-          row = Math.floor(Math.random() * 5) * 5
-          firstLoc = Math.floor(Math.random() * 3) + row
-          location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}`)
+          locX = Math.floor(Math.random() * 5)
+          locY = Math.floor(Math.random() * 3)
+          location = [locX, locY, locX, locY +1, locX, locY +2]
           smallArr.push(location)
           }
       }
@@ -188,13 +206,14 @@ function generateMedium(){
     direction = getDirection()
     if (ship === "MMMM") {
       if (direction === 1) {
-        firstLoc = Math.floor(Math.random() * 10)
-        location = (`${firstLoc}, ${firstLoc + 5}, ${firstLoc + 10}, ${firstLoc + 15}`)
+        locX = Math.floor(Math.random() * 2)
+        locY = Math.floor(Math.random() * 5)
+        location = [locX, locY, locX +1, locY, locX +2, locY, locX +3, locY]
         medArr.push(location)
       } else {
-        row = Math.floor(Math.random() * 5) * 5
-        firstLoc = Math.floor(Math.random() * 2) + row
-        location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}, ${firstLoc + 3}`)
+        locX = Math.floor(Math.random() * 5)
+        locY = Math.floor(Math.random() * 2)
+        location = [locX, locY, locX, locY +1, locX, locY +2, locX, locY +3]
         medArr.push(location)
         }
       }
@@ -209,13 +228,13 @@ function generateLarge(){
     direction = getDirection()
     if (ship === 'LLLLL') { 
       if (direction === 1) {
-        firstLoc = Math.floor(Math.random() * 5)
-        location = (`${firstLoc}, ${firstLoc + 5}, ${firstLoc + 10}, ${firstLoc + 15}, ${firstLoc + 20}`)
-        largeArr.push(location)
+        locX = Math.floor(Math.random() * 1)
+        locY = Math.floor(Math.random() * 5)
+        location = [locX, locY, locX +1, locY, locX +2, locY, locX +3, locY, locX +4, locY]
       } else {
-          row = Math.floor(Math.random() * 5) * 5
-          firstLoc = (1 * row)
-          location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}, ${firstLoc + 3}, ${firstLoc + 4}`)
+        locX = Math.floor(Math.random() * 5)
+        locY = Math.floor(Math.random() * 1)
+        location = [locX, locY, locX, locY +1, locX, locY +2, locX, locY +3, locX, locY +4]
           largeArr.push(location)
         }
       }
