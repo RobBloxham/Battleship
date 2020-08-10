@@ -91,8 +91,14 @@ let ships = [
   pieces.mediumShip,
 ]
 let shipSize = ships.map(size => size.length)
-let winner, board //board, shipSunk
-
+let winner //board, shipSunk
+let board = [
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+  [null, null, null, null, null], 
+]
 
 /*------Cached Element References------*/
 
@@ -109,15 +115,14 @@ document.querySelector('section').addEventListener('click', onClick)
 /*------Functions------*/
 
 function init(){
-
-  messageEl.innerHTML = "Make your first move"
-  let board = [
+  board = [
     [null, null, null, null, null], 
     [null, null, null, null, null], 
     [null, null, null, null, null], 
     [null, null, null, null, null], 
     [null, null, null, null, null], 
   ]
+  messageEl.innerHTML = "Make your first move"
   generateShips()
 }
 // Initialization function:
@@ -163,55 +168,25 @@ function generateShips(){
   }) 
 }
 
-function generateTiny(){
-  direction = getDirection()
-  if (direction === 1){
-  locX = Math.floor(Math.random() * 4)
-  locY = Math.floor(Math.random() * 5) 
-  console.log(locY, locX)
-  } else if (direction !== 1){
-    locX = Math.floor(Math.random() * 5)
-    locY = Math.floor(Math.random() * 4) 
-    console.log(locY, locX)
-  }
-  if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null){
-    board[locY].splice(locX, 1, "T")
-    board[locY].splice([locX+1], 1, "T")
-    console.log(board)
-    return board
-  } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null){
-    board[locY].splice(locX, 1, "T")
-    board[locY+1].splice(locX, 1, "T")
-    console.log(board)
-    return board
-  } 
-}
-
-
-function generateSmall(){
-  direction = getDirection()
-  if (direction === 1){
-  locX = Math.floor(Math.random() * 3)
-  locY = Math.floor(Math.random() * 5) 
-  console.log(locY, locX)
-  } else if (direction !== 1){
-    locX = Math.floor(Math.random() * 5)
-    locY = Math.floor(Math.random() * 3) 
-    console.log(locY, locX)
-  }
-  if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null){
-    board[locY].splice(locX, 1, "S")
-    board[locY].splice((locX+1), 1, "S")
-    board[locY].splice((locX+2), 1, "S")
-    console.log(board)
-    return board
-  } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null && board[locY +2][locX] === null){
-    board[locY].splice(locX, 1, "S")
-    board[locY+1].splice(locX, 1, "S")
-    board[locY+2].splice(locX, 1, "S")
-    console.log(board)
-    return board
-  } 
+function generateLarge(){
+  largeArr = []
+  let location
+  ships.forEach(ship => {
+    direction = getDirection()
+    if (ship === 'LLLLL') { 
+      if (direction === 1) {
+        locX = Math.floor(Math.random() * 1)
+        locY = Math.floor(Math.random() * 5)
+        location = [locX, locY, locX +1, locY, locX +2, locY, locX +3, locY, locX +4, locY]
+      } else {
+        locX = Math.floor(Math.random() * 5)
+        locY = Math.floor(Math.random() * 1)
+        location = [locX, locY, locX, locY +1, locX, locY +2, locX, locY +3, locX, locY +4]
+          largeArr.push(location)
+        }
+      }
+  })
+  console.log(largeArr)
 }
 
 function generateMedium(){
@@ -242,26 +217,57 @@ function generateMedium(){
   } 
 }
 
-function generateLarge(){
-  largeArr = []
-  let location
-  ships.forEach(ship => {
-    direction = getDirection()
-    if (ship === 'LLLLL') { 
-      if (direction === 1) {
-        locX = Math.floor(Math.random() * 1)
-        locY = Math.floor(Math.random() * 5)
-        location = [locX, locY, locX +1, locY, locX +2, locY, locX +3, locY, locX +4, locY]
-      } else {
-        locX = Math.floor(Math.random() * 5)
-        locY = Math.floor(Math.random() * 1)
-        location = [locX, locY, locX, locY +1, locX, locY +2, locX, locY +3, locX, locY +4]
-          largeArr.push(location)
-        }
-      }
-  })
-  console.log(largeArr)
+function generateSmall(){
+  direction = getDirection()
+  if (direction === 1){
+  locX = Math.floor(Math.random() * 3)
+  locY = Math.floor(Math.random() * 5) 
+  console.log(locY, locX)
+  } else if (direction !== 1){
+    locX = Math.floor(Math.random() * 5)
+    locY = Math.floor(Math.random() * 3) 
+    console.log(locY, locX)
+  }
+  if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null){
+    board[locY].splice(locX, 1, "S")
+    board[locY].splice((locX+1), 1, "S")
+    board[locY].splice((locX+2), 1, "S")
+    console.log(board)
+    return board
+  } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null && board[locY +2][locX] === null){
+    board[locY].splice(locX, 1, "S")
+    board[locY+1].splice(locX, 1, "S")
+    board[locY+2].splice(locX, 1, "S")
+    console.log(board)
+    return board
+  } 
 }
+
+function generateTiny(){
+  direction = getDirection()
+  if (direction === 1){
+  locX = Math.floor(Math.random() * 4)
+  locY = Math.floor(Math.random() * 5) 
+  console.log(locY, locX)
+  } else if (direction !== 1){
+    locX = Math.floor(Math.random() * 5)
+    locY = Math.floor(Math.random() * 4) 
+    console.log(locY, locX)
+  }
+  if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null){
+    board[locY].splice(locX, 1, "T")
+    board[locY].splice([locX+1], 1, "T")
+    console.log(board)
+    return board
+  } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null){
+    board[locY].splice(locX, 1, "T")
+    board[locY+1].splice(locX, 1, "T")
+    console.log(board)
+    return board
+  } 
+}
+
+
 
   // create initial x,y use that to check if that spot is null then check if 
     // for each element in tinyArr
