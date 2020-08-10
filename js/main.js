@@ -52,15 +52,26 @@ Before placing call on a function that will ensure that places the ship wants to
 // 0 = ship
 // 1 = hit
 // x = miss
-
+const game = {
+  'ship': '0',
+  'hit': '1',
+  'miss': '2'
+}
+const pieces = {
+'tinyShip': 'TT',
+'smallShip': 'SSS',
+'mediumShip': 'MMMM',
+'largeShip': 'LLLLL'
+}
 /*------Variables (state)------*/
 
 let ships = [
-  {ship1: "1,2,3"},
-  {ship2: "1,2,3"},
-  {ship3: "1,2,3"},
-  {ship4: "1,2,3"}
+  pieces.tinyShip,
+  pieces.smallShip,
+  pieces.smallShip,
+  pieces.mediumShip,
 ]
+let shipSize = ships.map(size => size.length)
 let board, winner //, shipSunk
 
 /*------Cached Element References------*/
@@ -85,7 +96,6 @@ function init(){
     null, null, null, null, null, 
     null, null, null, null, null, 
   ]
-  placeShips()
   messageEl.innerHTML = "Make your first move"
 }
 // Initialization function:
@@ -101,42 +111,109 @@ function getDirection(){
   return Math.floor(Math.random() * 2) + 1
 }
 
-function generateShips(size){
-  tempArr = []
-  // size = 3
+function generateShips(){
+  let board = [
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+  ]
+  generateTiny()
+  generateSmall()
+  generateMedium()
+  generateLarge()
+console.log(board)
+}
+
+function generateTiny(shipSize){
+  tinyArr = []
   let location
   ships.forEach(ship => {
     direction = getDirection()
-    if (size === 3){
+      if (ship === 'TT'){
+        if (direction === 1) {
+          firstLoc = Math.floor(Math.random() * 20)
+          location = (`${firstLoc}, ${firstLoc + 5}`)
+          tinyArr.push(location)
+        } else {
+          row = Math.floor(Math.random() * 5) * 5
+          firstLoc = Math.floor(Math.random() * 4) + row
+          location = (`${firstLoc}, ${firstLoc + 1}`)
+          tinyArr.push(location)
+          }
+      }
+    })
+  console.log(tinyArr)
+}
+
+function generateSmall(shipSize){
+  smallArr = []
+  let location
+  ships.forEach(ship => {
+    direction = getDirection()
+      if (ship === 'SSS'){
+        if (direction === 1) {
+          firstLoc = Math.floor(Math.random() * 15)
+          location = (`${firstLoc}, ${firstLoc + 5}, ${firstLoc + 10}`)
+          smallArr.push(location)
+       } else {
+          row = Math.floor(Math.random() * 5) * 5
+          firstLoc = Math.floor(Math.random() * 3) + row
+          location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}`)
+          smallArr.push(location)
+          }
+      }
+  })
+  console.log(smallArr)
+}
+
+function generateMedium(shipSize){
+  medArr = []
+  let location
+  ships.forEach(ship => {
+    direction = getDirection()
+    if (ship === "MMMM") {
       if (direction === 1) {
-        firstLoc = Math.floor(Math.random() * 30)
-        location = (`${firstLoc}, ${firstLoc + 10}, ${firstLoc + 20}`)
-        // console.log(location)
-        tempArr.push(location)
+        firstLoc = Math.floor(Math.random() * 10)
+        location = (`${firstLoc}, ${firstLoc + 5}, ${firstLoc + 10}, ${firstLoc + 15}`)
+        medArr.push(location)
       } else {
-        firstLoc = Math.floor(Math.random() * 47)
-        location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}`)
-        tempArr.push(location)
+        row = Math.floor(Math.random() * 5) * 5
+        firstLoc = Math.floor(Math.random() * 2) + row
+        location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}, ${firstLoc + 3}`)
+        medArr.push(location)
         }
       }
-    else if (size === 4){
-
-    }
-    else if (size === 5){
-
-    }
-    // console.log(tempArr)
   })
-  placeShips()
-  console.log(tempArr)
+  console.log(medArr)
 }
- 
 
-function placeShips(){
-  tempArr.forEach(item => {
-    tempArr.splice(,)
+function generateLarge(shipSize){
+  largeArr = []
+  let location
+  ships.forEach(ship => {
+    direction = getDirection()
+    if (ship === 'LLLLL') { 
+      if (direction === 1) {
+        firstLoc = Math.floor(Math.random() * 5)
+        location = (`${firstLoc}, ${firstLoc + 5}, ${firstLoc + 10}, ${firstLoc + 15}, ${firstLoc + 20}`)
+        largeArr.push(location)
+      } else {
+          row = Math.floor(Math.random() * 5) * 5
+          firstLoc = (1 * row)
+          location = (`${firstLoc}, ${firstLoc + 1}, ${firstLoc + 2}, ${firstLoc + 3}, ${firstLoc + 4}`)
+          largeArr.push(location)
+        }
+      }
   })
+  console.log(largeArr)
 }
+// function placeShips(type, location){
+//   // let joinArr = tempArr.map(loc => 
+//   //  tempArr.split(', ').join(' ')
+//   //  )
+// }
 
 // function placeShips(size, direction){
 //   tempArr = []
@@ -258,4 +335,3 @@ function redner(){
 //   } 
 //   console.log(tempArr)
 // });
-// moveShips()
