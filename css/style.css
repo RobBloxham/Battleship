@@ -1,6 +1,10 @@
   
 body {
-    background-image: url('images/oceanscene.png');
+    background: url('images/oceanscene.png'); no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     height: 100vh;
     display: flex;
     flex-direction: column;

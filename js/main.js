@@ -91,14 +91,8 @@ let ships = [
   pieces.mediumShip,
 ]
 let shipSize = ships.map(size => size.length)
-let winner //board, shipSunk
-let board = [
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-]
+let winner, board //board, shipSunk
+
 
 /*------Cached Element References------*/
 
@@ -117,6 +111,14 @@ document.querySelector('section').addEventListener('click', onClick)
 function init(){
 
   messageEl.innerHTML = "Make your first move"
+  let board = [
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+    [null, null, null, null, null], 
+  ]
+  generateShips()
 }
 // Initialization function:
 // Where you set your initial state, setting up 
