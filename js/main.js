@@ -53,6 +53,7 @@ function init(){
     element.style.background = ''
   })
   winCnt = 0
+  clickCount = 0
   generateShips()
   
 }
@@ -184,6 +185,7 @@ function onClick(e){
   clicked.push(e.target.id.split(', '))
   boardY = parseInt(clicked[0][0])
   boardX = parseInt(clicked[0][1])
+  clickCount += 1
   render(e)
   }
   else {
@@ -196,35 +198,30 @@ function render(e){
     messageEl.innerHTML = 'You missed!'
     e.target.style.background = "red"
     board[boardY].splice(boardX, 1, "Z")
-    clickCount += 1
   } else if (board[boardY][boardX] === 'T'){
     messageEl.innerHTML = 'You hit my Tiny ship!'
     e.target.style.background = "grey"
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
-    clickCount += 1
   } else if (board[boardY][boardX] === 'S'){
     messageEl.innerHTML = 'You hit my Small ship!'
     e.target.style.background = "grey"
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
-    clickCount += 1
   }else if (board[boardY][boardX] === 'M'){
     messageEl.innerHTML = 'You hit my Medium ship!'
     e.target.style.background = "grey"
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
-    clickCount += 1
   } else if (board[boardY][boardX] === 'L'){
     messageEl.innerHTML = 'You hit my Large ship!'
     e.target.style.background = "grey"
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
-    clickCount += 1
   }
   if (winCnt === 12){
     winner = "win"
     messageEl.innerHTML = 'You Win!!!!'
-    console.log(parseInt(clickCount))
+    highScoreEl.innerHTML= `You fired ${clickCount} missles!`
   } 
 }
