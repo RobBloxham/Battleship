@@ -68,22 +68,23 @@ let ships = [
 ]
 
 let shipSize = ships.map(size => size.length)
-let winner, board, clicked, boardX, boardY, idx //board, shipSunk
+let winner, board, clicked, boardX, boardY 
 
 /*------Cached Element References------*/
 const highScoreEl = document.getElementById('highscore')
 const squaresEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 const messageEl = document.getElementById('message')
+const square = document.querySelector('board')
 
 
 /*------Event Listeners------*/
 
 resetBtn.addEventListener('click', init)
-document.querySelector('section').addEventListener('click', onClick)
+document.querySelector('.board').addEventListener('click', onClick)
 
 /*------Functions------*/
-
+init()
 function init(){
   board = [
     [null, null, null, null, null], 
@@ -93,6 +94,7 @@ function init(){
     [null, null, null, null, null], 
   ]
   messageEl.innerHTML = "Make your first move"
+  winner = null
   generateShips()
 }
 
@@ -128,6 +130,7 @@ function generateShips(){
       }
     }
   }) 
+  console.log(board)
 }
 
 function generateLarge(){
@@ -158,21 +161,18 @@ function generateMedium(){
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 5)
     locY = Math.floor(Math.random() * 2) 
-    console.log(locY, locX)
   }
   if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null && board[locY][locX + 3] === null){
     board[locY].splice(locX, 1, "M")
     board[locY].splice((locX+1), 1, "M")
     board[locY].splice((locX+2), 1, "M")
     board[locY].splice((locX+3), 1, "M")
-    console.log(board)
     return board
   } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null && board[locY +2][locX] === null && board[locY +3][locX] === null){
     board[locY].splice(locX, 1, "M")
     board[locY+1].splice(locX, 1, "M")
     board[locY+2].splice(locX, 1, "M")
     board[locY+3].splice(locX, 1, "M")
-    console.log(board)
     return board
   } 
 }
@@ -182,23 +182,19 @@ function generateSmall(){
   if (direction === 1){
   locX = Math.floor(Math.random() * 3)
   locY = Math.floor(Math.random() * 5) 
-  console.log(locY, locX)
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 5)
     locY = Math.floor(Math.random() * 3) 
-    console.log(locY, locX)
   }
   if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null){
     board[locY].splice(locX, 1, "S")
     board[locY].splice((locX+1), 1, "S")
     board[locY].splice((locX+2), 1, "S")
-    console.log(board)
     return board
   } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null && board[locY +2][locX] === null){
     board[locY].splice(locX, 1, "S")
     board[locY+1].splice(locX, 1, "S")
     board[locY+2].splice(locX, 1, "S")
-    console.log(board)
     return board
   } 
 }
@@ -208,21 +204,17 @@ function generateTiny(){
   if (direction === 1){
   locX = Math.floor(Math.random() * 4)
   locY = Math.floor(Math.random() * 5) 
-  console.log(locY, locX)
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 5)
     locY = Math.floor(Math.random() * 4) 
-    console.log(locY, locX)
   }
   if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null){
     board[locY].splice(locX, 1, "T")
     board[locY].splice([locX+1], 1, "T")
-    console.log(board)
     return board
   } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null){
     board[locY].splice(locX, 1, "T")
     board[locY+1].splice(locX, 1, "T")
-    console.log(board)
     return board
   } 
 }
@@ -232,14 +224,14 @@ function onClick(e){
   clicked.push(e.target.id.split(', '))
   boardY = parseInt(clicked[0][0])
   boardX = parseInt(clicked[0][1])
-  render()
+  render(e)
 }
 
 function checkWinner(){
-  if (board.includes("0")){
-    winner = null
-  } else {
+  if (board.includes("H")){
     winner = 'win'
+  } else {
+    winner = null
   }
 }
 // Check winner function:
@@ -248,18 +240,34 @@ function checkWinner(){
 // variable if so
 // if board does not contain any 0's declare winner
 
-function render(){
+function render(e){
+  checkWinner()
   if (board[boardY][boardX] === null){
+    console.log(e.target)
     messageEl.innerHTML = 'You missed!'
-    squaresEl[boardY][boardX].style.background = "red"
+    e.target.style.background = "red"
     board[boardY].splice(boardX, 1, "Z")
-    console.log(board)
-  } else if (board[boardY][boardX] === 'T')
+  } else if (board[boardY][boardX] === 'T'){
   messageEl.innerHTML = 'You hit my Tiny ship!'
-  else if (board[boardY][boardX] === 'S')
+  e.target.style.background = "grey"
+  board[boardY].splice(boardX, 1, "H")
+  } else if (board[boardY][boardX] === 'S'){
   messageEl.innerHTML = 'You hit my Small ship!'
-  else if (board[boardY][boardX] === 'M')
+  e.target.style.background = "grey"
+  board[boardY].splice(boardX, 1, "H")
+  }else if (board[boardY][boardX] === 'M'){
   messageEl.innerHTML = 'You hit my Medium ship!'
+  e.target.style.background = "grey"
+  board[boardY].splice(boardX, 1, "H")
+  } else if (board[boardY][boardX] === 'L'){
+    messageEl.innerHTML = 'You hit my Large ship!'
+    e.target.style.background = "grey"
+    board[boardY].splice(boardX, 1, "H")
+  }
+  else if (winner === 'win'){
+    messageEl.innerHTML = 'You Win!!!!'
+  }
+  console.log(board)
 }
 // Render function:
 // Displays the current state of the board
