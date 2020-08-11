@@ -92,7 +92,7 @@ let ships = [
   pieces.mediumShip,
 ]
 let shipSize = ships.map(size => size.length)
-let winner, board, clicked, boardX, boardY //board, shipSunk
+let winner, board, clicked, boardX, boardY, idx //board, shipSunk
 // let board = [
 //   [null, null, null, null, null], 
 //   [null, null, null, null, null], 
@@ -179,7 +179,6 @@ function generateLarge(){
         }
       }
   })
-  console.log(largeArr)
 }
 
 function generateMedium(){
@@ -187,7 +186,6 @@ function generateMedium(){
   if (direction === 1){
   locX = Math.floor(Math.random() * 2)
   locY = Math.floor(Math.random() * 5) 
-  console.log(locY, locX)
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 5)
     locY = Math.floor(Math.random() * 2) 
@@ -266,7 +264,6 @@ function onClick(e){
   boardY = parseInt(clicked[0][0])
   boardX = parseInt(clicked[0][1])
   render()
-  console.log(boardY)
 }
 // On-Click function:
 // Set up what happens when one of the elements
@@ -288,9 +285,12 @@ function checkWinner(){
 // if board does not contain any 0's declare winner
 
 function render(){
-  if (board[boardY][boardX] === null)
-  messageEl.innerHTML = 'You missed!'
-  else if (board[boardY][boardX] === 'T')
+  if (board[boardY][boardX] === null){
+    messageEl.innerHTML = 'You missed!'
+    squaresEl[boardY][boardX].style.background = "red"
+    board[boardY].splice(boardX, 1, "Z")
+    console.log(board)
+  } else if (board[boardY][boardX] === 'T')
   messageEl.innerHTML = 'You hit my Tiny ship!'
   else if (board[boardY][boardX] === 'S')
   messageEl.innerHTML = 'You hit my Small ship!'
