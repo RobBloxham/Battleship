@@ -82,6 +82,7 @@ const pieces = {
 'mediumShip': 'MMMM',
 'largeShip': 'LLLLL'
 }
+
 /*------Variables (state)------*/
 
 let ships = [
@@ -91,7 +92,7 @@ let ships = [
   pieces.mediumShip,
 ]
 let shipSize = ships.map(size => size.length)
-let winner, board, clicked //board, shipSunk
+let winner, board, clicked, boardX, boardY //board, shipSunk
 // let board = [
 //   [null, null, null, null, null], 
 //   [null, null, null, null, null], 
@@ -105,6 +106,7 @@ const highScoreEl = document.getElementById('highscore')
 const squaresEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 const messageEl = document.getElementById('message')
+
 
 /*------Event Listeners------*/
 
@@ -260,9 +262,11 @@ function generateTiny(){
 
 function onClick(e){
   let clicked = []
-  clicked.push(e.target.id)
-  console.log(clicked)
-  //redner()
+  clicked.push(e.target.id.split(', '))
+  boardY = parseInt(clicked[0][0])
+  boardX = parseInt(clicked[0][1])
+  render()
+  console.log(boardY)
 }
 // On-Click function:
 // Set up what happens when one of the elements
@@ -283,8 +287,15 @@ function checkWinner(){
 // variable if so
 // if board does not contain any 0's declare winner
 
-function redner(){
-})
+function render(){
+  if (board[boardY][boardX] === null)
+  messageEl.innerHTML = 'You missed!'
+  else if (board[boardY][boardX] === 'T')
+  messageEl.innerHTML = 'You hit my Tiny ship!'
+  else if (board[boardY][boardX] === 'S')
+  messageEl.innerHTML = 'You hit my Small ship!'
+  else if (board[boardY][boardX] === 'M')
+  messageEl.innerHTML = 'You hit my Medium ship!'
 }
 // Render function:
 // Displays the current state of the board
