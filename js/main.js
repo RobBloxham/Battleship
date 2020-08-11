@@ -71,11 +71,11 @@ Before placing call on a function that will ensure that places the ship wants to
 // 0 = ship
 // 1 = hit
 // x = miss
-// const game = {
-//   'ship': '0',
-//   'hit': '1',
-//   'miss': '2'
-// }
+const game = {
+  'ship': '0',
+  'hit': '1',
+  'miss': '2'
+}
 const pieces = {
 'tinyShip': 'TT',
 'smallShip': 'SSS',
@@ -91,19 +91,18 @@ let ships = [
   pieces.mediumShip,
 ]
 let shipSize = ships.map(size => size.length)
-let winner //board, shipSunk
-let board = [
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-  [null, null, null, null, null], 
-]
+let winner, board, clicked //board, shipSunk
+// let board = [
+//   [null, null, null, null, null], 
+//   [null, null, null, null, null], 
+//   [null, null, null, null, null], 
+//   [null, null, null, null, null], 
+//   [null, null, null, null, null], 
+// ]
 
 /*------Cached Element References------*/
-
 const highScoreEl = document.getElementById('highscore')
-const squareEl = document.querySelectorAll('div')
+const squaresEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 const messageEl = document.getElementById('message')
 
@@ -125,15 +124,7 @@ function init(){
   messageEl.innerHTML = "Make your first move"
   generateShips()
 }
-// Initialization function:
-// Where you set your initial state, setting up 
-// what the board will look like upon loading
-// set board to nulls
 
-// function getRandom(max){
-//for each?
-//   return Math.floor(Math.random() * Math.floor(max))
-// }
 function getDirection(){
   return Math.floor(Math.random() * 2) + 1
 }
@@ -267,39 +258,11 @@ function generateTiny(){
   } 
 }
 
-
-
-  // create initial x,y use that to check if that spot is null then check if 
-    // for each element in tinyArr
-    // index 0 access the value of that index equal to the nested array inside of board
-    // index 1 etc access the value of that index equal to the index inside the previously accessed nested array
-    // check if null
-    // if all positions equal null, push T to the accessed spots 
-    // else run the entire function again 
-
-// function placeShips(){
-//   tinyArr.forEach(ship => {
-//     parseInt(board.splice(ship, ship, ship,))
-//   });
-// }
-
-//***horizontal*** if get direction returns 1
-// pick array 0 - 4 of board with Math.floor(Math.random() * 5)
-// then pick index inside of array 0-2 with Math.floor(Math.random() * 3)
-// check each of the places (x,y)(x, y+1) and (x, y+2) in the board index = null push to random array 
-// if all indexs are in the random array push to board and set value to 0
-// if index != null try again from picking array
-
-//***vertical*** if getDirection returns 2
-// pick array of board 0-2 with Math.floor(Math.random() * 3)
-// then pick index inside of array 0-4 with Math.floor(Math.random() * 5)
-// then push each of the index's of the next 3 arrays to a temp array
-// if all indexes are in the random array push to board set value to 0
-// if index != null try again from picking array
-
-
-function onClick(){
-
+function onClick(e){
+  let clicked = []
+  clicked.push(e.target.id)
+  console.log(clicked)
+  //redner()
 }
 // On-Click function:
 // Set up what happens when one of the elements
@@ -321,7 +284,7 @@ function checkWinner(){
 // if board does not contain any 0's declare winner
 
 function redner(){
-
+})
 }
 // Render function:
 // Displays the current state of the board
