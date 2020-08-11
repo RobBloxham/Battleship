@@ -44,33 +44,8 @@ if 2 generate a random number between 1 and 5 to determine which column(i) the s
 then generate a random number between 1 and 3 as 3 would be the furthest place from the top that the ship could be placed.
 Before placing call on a function that will ensure that places the ship wants to go are currently empty. */
 
-/*------Classes------*/
-// class Cell {
-//   constructor(
-//     id,
-//     xcor,
-//     ycor,
-//     hasShip,
-//     shipHit,
-//     hasWater,
-//     ) {
-//     this.id = id
-//     this.xcor = xcor
-//     this.ycor = ycor
-//     this.hasShip = hasShip
-//     this.shipHit = shipHit
-//     this.hasWater = hasWater
-//   }
-// }
-
-
 /*------Constants------*/
-// i.e. audio/picture elments that are being placed later
 
-// on the board
-// 0 = ship
-// 1 = hit
-// x = miss
 const game = {
   'ship': '0',
   'hit': '1',
@@ -91,15 +66,9 @@ let ships = [
   pieces.smallShip,
   pieces.mediumShip,
 ]
+
 let shipSize = ships.map(size => size.length)
 let winner, board, clicked, boardX, boardY, idx //board, shipSunk
-// let board = [
-//   [null, null, null, null, null], 
-//   [null, null, null, null, null], 
-//   [null, null, null, null, null], 
-//   [null, null, null, null, null], 
-//   [null, null, null, null, null], 
-// ]
 
 /*------Cached Element References------*/
 const highScoreEl = document.getElementById('highscore')
@@ -265,11 +234,6 @@ function onClick(e){
   boardX = parseInt(clicked[0][1])
   render()
 }
-// On-Click function:
-// Set up what happens when one of the elements
-// is clicked  hit if not hit then miss 
-// if hit change value to 1 
-// if miss change value to 2
 
 function checkWinner(){
   if (board.includes("0")){
@@ -316,29 +280,3 @@ function render(){
 // }
 // // check if ship is sunk function:
 // // might be able to pair this with the check winner?
-
-// function avoidCollision(){
-
-// }
-// // avoid collision function:
-// // will make sure the spaces a ship is about to be placed are empty before placing
-// // check each cell determined by the length of hte ship to see if its occupied
-// // if all are null set each of those cells to 0 to represent that it is occupied
-// // if any are 0 add/subtract 
-
-// tempArr = []
-// let locX 
-// let locY 
-// ships.forEach(ship => {
-//   direction = getDirection()
-//   if (direction === 1){ 
-//     locX = Math.floor(Math.random() * 5)
-//     locY = Math.floor(Math.random() * 3)
-//     tempArr.push([locX, locY], [locX, locY+1], [locX, locY+2])
-//   } else {
-//     locX = Math.floor(Math.random() * 3)
-//     locY = Math.floor(Math.random() * 5)
-//     tempArr.push([locX, locY], [locX+1, locY], [locX+2, locY])
-//   } 
-//   console.log(tempArr)
-// });
