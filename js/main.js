@@ -1,48 +1,3 @@
-/* Project setup
-some of the things i will need
-on start setup game (initialize function)
-Randomly generate a winning combination/where pieces go on board (maybe there is a way i can use an api here to grab random numbers?)
-define constants 
-define variables
-store elements
-
-onclick interaction that will when clicked ineract with board 
-Hit or miss function:
-1) if hit has ship been sunk?
-2) if sunk does this meet win conidition? (call a check winner function)
-  2.1) if sunk and does not meet win condition place a destroyed ship piece on board (maybe something at the bottom of the grid to indicate how many ships are left)
-3) if miss place a marker for miss
-
-when reset button is clicked what happens
-
-Check winner function
-
-initiliaze function
-
-check ship sunk function
-
-Top Secret Button (if i dont randomly generate the ship placement via an api this will call on api for something TBD) */
-
-/* solving what I think will be my biggest issue with this game: placing ships randomly on the board both horizontally (easy) and vertically (much harder):
-
-If i make the board an array that contains arrays for each row i.e. a 5x5 would be 
-board [
-  [sq01, sq02, sq03, sq04, sq05],
-  [sq06, sq07, sq08, sq09, sq10],
-  [sq11, sq12, sq13, sq14, sq15],
-  [sq16, sq17, sq18, sq19, sq20],
-  [sq21, sq22, sq23, sq24, sq25],
-]
-lets assume the ship size for this is 3x1 
-I can generate a random number/coinflip that will determine if the piece will be 1(heads) horizontal or 2(tales) vertical
-
-if 1 generate a random number between 1 and 5 to determine which row(j) the ship will go
-then generate a random number between 1 and 3 as 3 would be the furthers place from the left a 3x1 ship would fit in a row.
-Before placing the piece it should call on a function that will ensure that places the ship wants to go are currently empty.
-
-if 2 generate a random number between 1 and 5 to determine which column(i) the ship will go in to 
-then generate a random number between 1 and 3 as 3 would be the furthest place from the top that the ship could be placed.
-Before placing call on a function that will ensure that places the ship wants to go are currently empty. */
 
 /*------Constants------*/
 
@@ -68,7 +23,7 @@ let ships = [
 ]
 
 let shipSize = ships.map(size => size.length)
-let winner, board, clicked, boardX, boardY 
+let winner, board, clicked, boardX, boardY, winCnt, clickCount
 
 /*------Cached Element References------*/
 const highScoreEl = document.getElementById('highscore')
@@ -76,7 +31,6 @@ const squaresEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 const messageEl = document.getElementById('message')
 const square = document.querySelector('board')
-
 
 /*------Event Listeners------*/
 
@@ -95,7 +49,12 @@ function init(){
   ]
   messageEl.innerHTML = "Make your first move"
   winner = null
+  squaresEl.forEach(element => {
+    element.style.background = ''
+  })
+  winCnt = 0
   generateShips()
+  
 }
 
 function getDirection(){
@@ -220,71 +179,52 @@ function generateTiny(){
 }
 
 function onClick(e){
+  if (winner === null){
   let clicked = []
   clicked.push(e.target.id.split(', '))
   boardY = parseInt(clicked[0][0])
   boardX = parseInt(clicked[0][1])
   render(e)
-}
-
-function checkWinner(){
-  if (board.includes("H")){
-    winner = 'win'
-  } else {
-    winner = null
+  }
+  else {
+    return board
   }
 }
-// Check winner function:
-// Checks the current state of the board for
-// a winner and changes the state of the winner
-// variable if so
-// if board does not contain any 0's declare winner
 
 function render(e){
-  checkWinner()
   if (board[boardY][boardX] === null){
-    console.log(e.target)
     messageEl.innerHTML = 'You missed!'
     e.target.style.background = "red"
     board[boardY].splice(boardX, 1, "Z")
+    clickCount += 1
   } else if (board[boardY][boardX] === 'T'){
-  messageEl.innerHTML = 'You hit my Tiny ship!'
-  e.target.style.background = "grey"
-  board[boardY].splice(boardX, 1, "H")
+    messageEl.innerHTML = 'You hit my Tiny ship!'
+    e.target.style.background = "grey"
+    board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    clickCount += 1
   } else if (board[boardY][boardX] === 'S'){
-  messageEl.innerHTML = 'You hit my Small ship!'
-  e.target.style.background = "grey"
-  board[boardY].splice(boardX, 1, "H")
+    messageEl.innerHTML = 'You hit my Small ship!'
+    e.target.style.background = "grey"
+    board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    clickCount += 1
   }else if (board[boardY][boardX] === 'M'){
-  messageEl.innerHTML = 'You hit my Medium ship!'
-  e.target.style.background = "grey"
-  board[boardY].splice(boardX, 1, "H")
+    messageEl.innerHTML = 'You hit my Medium ship!'
+    e.target.style.background = "grey"
+    board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    clickCount += 1
   } else if (board[boardY][boardX] === 'L'){
     messageEl.innerHTML = 'You hit my Large ship!'
     e.target.style.background = "grey"
     board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    clickCount += 1
   }
-  else if (winner === 'win'){
+  if (winCnt === 12){
+    winner = "win"
     messageEl.innerHTML = 'You Win!!!!'
-  }
-  console.log(board)
+    console.log(parseInt(clickCount))
+  } 
 }
-// Render function:
-// Displays the current state of the board
-// on the page, updating the elements to reflect
-// if spot on board is 1 place damaged img or css effect
-// if spot on board is 2 place missed img
-// render winner text if winner = win 
-
-
-
-
-
-
-
-
-// function sunk(){
-
-// }
-// // check if ship is sunk function:
-// // might be able to pair this with the check winner?
