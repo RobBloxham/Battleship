@@ -7,20 +7,21 @@ const game = {
   'miss': '2'
 }
 const pieces = {
-'tinyShip': 'TT',
-'smallShip': 'SSS',
-'mediumShip': 'MMMM',
-'largeShip': 'LLLLL'
+'destroyerShip': 'TT',
+'cruiserShip': 'SSS',
+'subShip': 'UUU',
+'battleShip': 'MMMM',
+'carrierShip': 'LLLLL'
 }
 
 /*------Variables (state)------*/
 
 let ships = [
-  pieces.tinyShip,
-  pieces.smallShip,
-  pieces.smallShip,
-  pieces.mediumShip,
-  pieces.largeShip
+  pieces.destroyerShip,
+  pieces.cruiserShip,
+  pieces.subShip,
+  pieces.battleShip,
+  pieces.carrierShip
 ]
 
 let shipSize = ships.map(size => size.length)
@@ -55,7 +56,7 @@ function init(){
     [null, null, null, null, null, null, null, null, null, null], 
     [null, null, null, null, null, null, null, null, null, null],  
   ]
-  messageEl.innerHTML = "Make your first move"
+  messageEl.innerHTML = "Fire your first missle!"
   currScoreEl.innerHTML = "Score: 0"
   winner = null
   squaresEl.forEach(element => {
@@ -77,7 +78,7 @@ function generateShips(){
     if (ship === 'LLLLL'){
       counter = 0
       while (counter < 1 ){
-        if(generateLarge()){
+        if(generateCarrier()){
           counter += 1
         }
       }
@@ -85,7 +86,7 @@ function generateShips(){
     else if (ship === 'MMMM'){
       counter = 0
     while (counter < 1 ) {
-        if (generateMedium()){
+        if (generateBattleship()){
           counter += 1
         }
       }
@@ -93,7 +94,15 @@ function generateShips(){
     else if (ship === 'SSS'){
       counter = 0
     while (counter < 1 ) {
-        if (generateSmall()){
+        if (generateCruiser()){
+          counter += 1
+        }
+      }
+    }
+    else if (ship === 'UUU'){
+      counter = 0
+    while (counter < 1 ) {
+        if (generateSub()){
           counter += 1
         }
       }
@@ -101,7 +110,7 @@ function generateShips(){
     else if (ship === 'TT'){
       counter = 0
     while (counter < 1 ) {
-        if (generateTiny()){
+        if (generateDestroyer()){
           counter += 1
         }
       }
@@ -109,7 +118,7 @@ function generateShips(){
   }) 
 }
 
-function generateLarge(){
+function generateCarrier(){
   direction = getDirection()
   if (direction === 1){
   locX = Math.floor(Math.random() * 6)
@@ -135,7 +144,7 @@ function generateLarge(){
   } 
 }
 
-function generateMedium(){
+function generateBattleship(){
   direction = getDirection()
   if (direction === 1){
   locX = Math.floor(Math.random() * 7)
@@ -159,7 +168,7 @@ function generateMedium(){
   } 
 }
 
-function generateSmall(){
+function generateCruiser(){
   direction = getDirection()
   if (direction === 1){
   locX = Math.floor(Math.random() * 8)
@@ -181,7 +190,29 @@ function generateSmall(){
   } 
 }
 
-function generateTiny(){
+function generateSub(){
+  direction = getDirection()
+  if (direction === 1){
+  locX = Math.floor(Math.random() * 8)
+  locY = Math.floor(Math.random() * 10) 
+  } else if (direction !== 1){
+    locX = Math.floor(Math.random() * 10)
+    locY = Math.floor(Math.random() * 8) 
+  }
+  if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null){
+    board[locY].splice(locX, 1, "U")
+    board[locY].splice((locX+1), 1, "U")
+    board[locY].splice((locX+2), 1, "U")
+    return board
+  } else if (direction !== 1 && board[locY][locX] === null && board[locY +1][locX] === null && board[locY +2][locX] === null){
+    board[locY].splice(locX, 1, "U")
+    board[locY+1].splice(locX, 1, "U")
+    board[locY+2].splice(locX, 1, "U")
+    return board
+  } 
+}
+
+function generateDestroyer(){
   direction = getDirection()
   if (direction === 1){
   locX = Math.floor(Math.random() * 9)
@@ -217,37 +248,44 @@ function onClick(e){
 function render(e){
   if (board[boardY][boardX] === null){
     messageEl.innerHTML = 'You missed!'
-    e.target.style.background = "red"
+    e.target.style.backgroundImage = 'url("Images/newsplash.png")'
     board[boardY].splice(boardX, 1, "Z")
     score -= 50
     currScoreEl.innerHTML= `Score: ${score}`
   } else if (board[boardY][boardX] === 'T'){
-    messageEl.innerHTML = 'You hit my Tiny ship!'
-    e.target.style.background = "grey"
+    messageEl.innerHTML = 'You hit my Destroyer!'
+    e.target.style.backgroundImage = 'url("Images/hit.png")'
+    board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    score += 1000
+    currScoreEl.innerHTML= `Score: ${score}`
+  } else if (board[boardY][boardX] === 'S'){
+    messageEl.innerHTML = 'You hit my Cruiser!'
+    e.target.style.backgroundImage = 'url("Images/hit.png")'
+    board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    score += 700
+    currScoreEl.innerHTML= `Score: ${score}`
+  } else if (board[boardY][boardX] === 'U'){
+    messageEl.innerHTML = 'You hit my Submarine!'
+    e.target.style.backgroundImage = 'url("Images/hit.png")'
+    board[boardY].splice(boardX, 1, "H")
+    winCnt += 1
+    score += 800
+    currScoreEl.innerHTML= `Score: ${score}`
+  }else if (board[boardY][boardX] === 'M'){
+    messageEl.innerHTML = 'You hit my Battleship!'
+    e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 500
     currScoreEl.innerHTML= `Score: ${score}`
-  } else if (board[boardY][boardX] === 'S'){
-    messageEl.innerHTML = 'You hit my Small ship!'
-    e.target.style.background = "grey"
+  } else if (board[boardY][boardX] === 'L'){
+    messageEl.innerHTML = 'You hit my Aircraft Carrier!'
+    e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 300
-    currScoreEl.innerHTML= `Score: ${score}`
-  }else if (board[boardY][boardX] === 'M'){
-    messageEl.innerHTML = 'You hit my Medium ship!'
-    e.target.style.background = "grey"
-    board[boardY].splice(boardX, 1, "H")
-    winCnt += 1
-    score += 200
-    currScoreEl.innerHTML= `Score: ${score}`
-  } else if (board[boardY][boardX] === 'L'){
-    messageEl.innerHTML = 'You hit my Large ship!'
-    e.target.style.background = "grey"
-    board[boardY].splice(boardX, 1, "H")
-    winCnt += 1
-    score += 100
     currScoreEl.innerHTML= `Score: ${score}`
   }
   if (winCnt === 17){

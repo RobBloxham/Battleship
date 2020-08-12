@@ -48,8 +48,7 @@ section.board {
     grid-template-rows: repeat(10, 6vmin);
     grid-template-columns: repeat(10, 6vmin);
     grid-gap: 0vmin;
-    background-color: ;
-
+    background: no-repeat center center fixed;
     
 }
 
@@ -87,7 +86,7 @@ div {
 #board {
     position: absolute;
     top: 30%;
-    right: 52%
+    right: 55%
 }
 #score {
     position: absolute;
@@ -112,7 +111,7 @@ div {
 #rules1 {
     text-align: left;
     position: absolute;
-    bottom: 53%;
+    bottom: 51%;
     right: 10%;
     font-size: 18px;
 }
@@ -126,7 +125,7 @@ div {
 #rules3 {
     text-align: left;
     position: absolute;
-    bottom: 27%;
-    right: 14.5%;
+    bottom: 25%;
+    right: 12.5%;
     font-size: 18px;
 }
