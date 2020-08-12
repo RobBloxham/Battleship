@@ -68,7 +68,7 @@ function init(){
     [null, null, null, null, null, null, null, null, null, null], 
     [null, null, null, null, null, null, null, null, null, null],  
   ]
-  messageEl.innerHTML = "Fire your first missle!"
+  messageEl.innerHTML = "Fire your first missile!"
   currScoreEl.innerHTML = "Current Score: 0"
   winner = null
   squaresEl.forEach(element => {
