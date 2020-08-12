@@ -24,6 +24,9 @@ AAU when you win you will have an indication that declares as such, and you can 
 ## Contributing
 Sun icon made by Freepik from www.flaticon.com
 Splash and Boom icons sourced from CLIPARTIX.COM
+Credit to Owlish Media for the splash sound.
+Explosion sound credit to [timgormly](https://freesound.org/people/timgormly/) of freesound.org under the [creative commons license](https://creativecommons.org/licenses/by/3.0/)
+Confetti credit to mathusummut and TimothyJones from their [git](https://github.com/mathusummut/confetti.js)
 
 ## Authors and acknowledgment
 I am a General Assembly Software Engineering Immmersive fellow.

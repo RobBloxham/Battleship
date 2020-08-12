@@ -37,6 +37,9 @@ const currScoreEl = document.getElementById('score')
 const SAVE_KEY_SCORE = "highscore"
 const highscore = localStorage.getItem(SAVE_KEY_SCORE)
 const darkBtn = document.getElementById('darkButton')
+const winSound = new Audio('Sounds/win.wav')
+const boom = new Audio('Sounds/boom.wav')
+const splash = new Audio('Sounds/splash.wav')
 const colorScheme = {
   dark: false,
   changeColorScheme: function(){
@@ -259,12 +262,14 @@ function render(e){
     messageEl.innerHTML = 'You missed!'
     e.target.style.backgroundImage = 'url("Images/newsplash.png")'
     board[boardY].splice(boardX, 1, "Z")
+    setTimeout(function(){splash.play();},0);
     score -= 50
     currScoreEl.innerHTML= `Score: ${score}`
   } else if (board[boardY][boardX] === 'T'){
     messageEl.innerHTML = 'You hit my Destroyer!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
+    setTimeout(function(){boom.play();},0);
     winCnt += 1
     score += 1000
     currScoreEl.innerHTML= `Current Score: ${score}`
@@ -272,6 +277,7 @@ function render(e){
     messageEl.innerHTML = 'You hit my Cruiser!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
+    setTimeout(function(){boom.play();},0);
     winCnt += 1
     score += 700
     currScoreEl.innerHTML= `Current Score: ${score}`
@@ -279,6 +285,7 @@ function render(e){
     messageEl.innerHTML = 'You hit my Submarine!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
+    setTimeout(function(){boom.play();},0);
     winCnt += 1
     score += 800
     currScoreEl.innerHTML= `Current Score: ${score}`
@@ -286,6 +293,7 @@ function render(e){
     messageEl.innerHTML = 'You hit my Battleship!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
+    setTimeout(function(){boom.play();},0);
     winCnt += 1
     score += 500
     currScoreEl.innerHTML= `Current Score: ${score}`
@@ -293,6 +301,7 @@ function render(e){
     messageEl.innerHTML = 'You hit my Aircraft Carrier!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
+    setTimeout(function(){boom.play();},0);
     winCnt += 1
     score += 300
     currScoreEl.innerHTML= `Current Score: ${score}`
@@ -301,6 +310,8 @@ function render(e){
     winner = "win"
     messageEl.innerHTML = 'You Win!!!!'
     currScoreEl.innerHTML = `Final Score: ${score}`
+    confetti.start(3800)
+    setTimeout(function(){winSound.play();},0);
   } 
   if (score > highscore)
   highScoreEl.innerHTML = `${score}`

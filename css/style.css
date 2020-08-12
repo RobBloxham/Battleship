@@ -36,7 +36,7 @@ header {
     grid-area: header;
     text-align: center;
     position: relative;
-    top: -26%;
+    top: -21%;
     right: 10%
 }
 #title {
@@ -68,7 +68,7 @@ div {
 }
 #resetButton {
     position: absolute;
-    bottom: 10%;
+    bottom: 8%;
     right: 15%;
 }
 #ts {
@@ -105,18 +105,19 @@ div {
     font-size: 30px;
 }
 #message {
-    position: absolute;
-    top: 40%;
-    right: 37%;
+    position: relative;
+    top: 15%;
+    font-size: 32px;    
 }
 #gname {
     position: relative;
     top: -13%;
+    font-size: 60px;
 }
 #rules {
     text-align: left;
     position: absolute;
-    bottom: 64%;
+    bottom: 67%;
     right: 3%;
     font-size: 18px;
     font-weight: 700;
@@ -132,7 +133,7 @@ div {
 #rules2 {
     text-align: left;
     position: absolute;
-    bottom: 40%;
+    bottom: 38%;
     right: 7%;
     font-size: 18px;
     font-weight: 500;
@@ -140,14 +141,15 @@ div {
 #rules3 {
     text-align: left;
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     right: 12.5%;
     font-size: 18px;
     font-weight: 500;
 }
 #score {
     position: absolute;
-    top: 13%
+    top: 13%;
+    left: 1%
 }
 #darkButton{
     background-image: var(--dark-Button-background-image);
@@ -161,4 +163,10 @@ div {
 }
 #darkButton::after {
     background-image: var(--dark-Button-background-image);
+}
+#highscore{
+    font-size: 24px;
+    position: relative;
+    top: -42%;
+    left: 8%;
 }
