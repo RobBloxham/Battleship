@@ -36,11 +36,20 @@ const square = document.querySelector('board')
 const currScoreEl = document.getElementById('score')
 const SAVE_KEY_SCORE = "highscore"
 const highscore = localStorage.getItem(SAVE_KEY_SCORE)
+const darkBtn = document.getElementById('darkButton')
+const colorScheme = {
+  dark: false,
+  changeColorScheme: function(){
+      colorScheme.dark ? colorScheme.dark = false : colorScheme.dark = true
+      const color = colorScheme.dark ? "dark" : ""
+      body.setAttribute("class", color)
+  }
+}
 /*------Event Listeners------*/
 
 resetBtn.addEventListener('click', init)
 document.querySelector('.board').addEventListener('click', onClick)
-
+darkBtn.addEventListener('click', colorScheme.changeColorScheme)
 /*------Functions------*/
 init()
 function init(){
@@ -296,3 +305,10 @@ function render(e){
   if (score > highscore)
   highScoreEl.innerHTML = `${score}`
 }
+
+function checkUserColorSchemePreference() {
+  if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    colorScheme.changeColorScheme()
+  }
+}
+checkUserColorSchemePreference()

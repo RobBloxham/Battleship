@@ -24,10 +24,13 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     overflow: hidden;
-    --dark-Button-content: "Dark Mode";
+    --dark-Button-background-image: url(Images/moon.png);
 }
 body.dark {
-    --dark-Button-background--img: "Light Mode";
+    background: url(Images/backdark.png) no-repeat center center fixed;
+    color: rgb(232, 230, 199);
+    --dark-Button-background-image: url(Images/sun.png);
+
 }
 header {
     grid-area: header;
@@ -146,12 +149,16 @@ div {
     position: absolute;
     top: 13%
 }
-@media (prefers-color-scheme: dark){
-    body{
-        background: url(images/backdark.png) no-repeat center center fixed; 
-        color: rgb(228, 230, 208);
-    }
-    img {
-        opacity: .75;
-    }
+#darkButton{
+    background-image: var(--dark-Button-background-image);
+    background-color: transparent;
+    border: none;
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    top: 3%;
+    right: 32%
+}
+#darkButton::after {
+    background-image: var(--dark-Button-background-image);
 }
