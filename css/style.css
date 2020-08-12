@@ -1,4 +1,11 @@
-  
+html {
+    box-sizing: border-box
+  }
+  *::before,
+  *::after { 
+       box-sizing: inherit;
+    }
+        
 body {
     background: url('images/oceanscene.png'); no-repeat fixed;
     -webkit-background-size: cover;
@@ -14,6 +21,8 @@ body {
     "header header header aside"
     " . board board aside"
     " . board board aside";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 header {
     grid-area: header;
@@ -51,4 +60,26 @@ div {
     font-size: 8vmin;
     text-align: center;
     vertical-align: middle;
+}
+#resetButton {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+}
+#ts {
+    position: absolute;
+    bottom: 25%;
+    right: 5%;
+}
+#top {
+    position: absolute;
+    top: 5%;
+}
+#highscore {
+    position: absolute;
+    top: 10%
+}
+#directions {
+    position: absolute;
+    top: 25%
 }
