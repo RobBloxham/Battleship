@@ -6,17 +6,43 @@ body {
     -o-background-size: cover;
     background-size: cover;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-areas: 
+    "header header header aside"
+    " . board board aside"
+    " . board board aside";
+}
+header {
+    grid-area: header;
+    align-self: flex-start;
+    text-align: center;
+    padding-right: 400px;
+    padding-bottom: 10px;
+    margin-top: -40px;
+    
+}
+#title {
+    font-size: 48px;
+
+}
+aside {
+    grid-area: aside
 }
 
 section.board {
+   
+    grid-area: board;
+    align-self: stretch;
     display: grid;
-    grid-template-rows: repeat(10, 10vmin);
-    grid-template-columns: repeat(10, 10vmin);
+    grid-template-rows: repeat(5, 10vmin);
+    grid-template-columns: repeat(5, 10vmin);
     grid-gap: 0vmin;
     background-color: ;
+    padding-left: 300px;
+    padding-bottom: 200px;
     
 }
 
