@@ -57,7 +57,7 @@ function init(){
     [null, null, null, null, null, null, null, null, null, null],  
   ]
   messageEl.innerHTML = "Fire your first missle!"
-  currScoreEl.innerHTML = "Score: 0"
+  currScoreEl.innerHTML = "Current Score: 0"
   winner = null
   squaresEl.forEach(element => {
     element.style.background = ''
@@ -258,40 +258,40 @@ function render(e){
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 1000
-    currScoreEl.innerHTML= `Score: ${score}`
+    currScoreEl.innerHTML= `Current Score: ${score}`
   } else if (board[boardY][boardX] === 'S'){
     messageEl.innerHTML = 'You hit my Cruiser!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 700
-    currScoreEl.innerHTML= `Score: ${score}`
+    currScoreEl.innerHTML= `Current Score: ${score}`
   } else if (board[boardY][boardX] === 'U'){
     messageEl.innerHTML = 'You hit my Submarine!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 800
-    currScoreEl.innerHTML= `Score: ${score}`
+    currScoreEl.innerHTML= `Current Score: ${score}`
   }else if (board[boardY][boardX] === 'M'){
     messageEl.innerHTML = 'You hit my Battleship!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 500
-    currScoreEl.innerHTML= `Score: ${score}`
+    currScoreEl.innerHTML= `Current Score: ${score}`
   } else if (board[boardY][boardX] === 'L'){
     messageEl.innerHTML = 'You hit my Aircraft Carrier!'
     e.target.style.backgroundImage = 'url("Images/hit.png")'
     board[boardY].splice(boardX, 1, "H")
     winCnt += 1
     score += 300
-    currScoreEl.innerHTML= `Score: ${score}`
+    currScoreEl.innerHTML= `Current Score: ${score}`
   }
   if (winCnt === 17){
     winner = "win"
     messageEl.innerHTML = 'You Win!!!!'
-    currScoreEl.innerHTML = `Final ${score}`
+    currScoreEl.innerHTML = `Final Score: ${score}`
   } 
   if (score > highscore)
   highScoreEl.innerHTML = `${score}`

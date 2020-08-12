@@ -21,15 +21,15 @@ AAU you will see every grid you have clicked if that "shot" missed there will be
 AAU if the shot hits you will see an item indicate they hit, if the shot has sunk that ship you will see a damaged/destroyed ship revealed on the board.
 AAU when you win you will have an indication that declares as such, and you can press reset to play again. 
 
-## Roadmap
-Stretch goals:
-Transition to a 2 player version of the game 
-
 ## Contributing
-This is where I will give credit to any resources I have used.
+Sun icon made by Freepik from www.flaticon.com
+Splash and Boom icons sourced from CLIPARTIX.COM
 
 ## Authors and acknowledgment
+I am a General Assembly Software Engineering Immmersive fellow.
+This game was created with Vanilla JavaScript, HTML, and CSS.
+A thank you to my cohort mates, instructors, Stoven, and IndigoPunch for the help and nudge in the right direction when I hit any roadblocks./
 my information including any acknowledgment for those who have helped 
 
 ## Project status
-This field may not be needed but maybe a place to keep updates on future happenings with the game i.e. what their current status is. 
+The project is complete in its inital form however I may revisit this project to add in 2 player functionality. 
