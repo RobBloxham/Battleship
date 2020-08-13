@@ -1,11 +1,6 @@
 
 /*------Constants------*/
 
-const game = {
-  'ship': '0',
-  'hit': '1',
-  'miss': '2'
-}
 const pieces = {
 'destroyerShip': 'TT',
 'cruiserShip': 'SSS',
