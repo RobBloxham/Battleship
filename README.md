@@ -22,16 +22,16 @@ AAU if the shot hits you will see an item indicate they hit, if the shot has sun
 AAU when you win you will have an indication that declares as such, and you can press reset to play again. 
 
 ## Contributing
-Sun icon made by Freepik from www.flaticon.com
-Splash and Boom icons sourced from CLIPARTIX.COM
-Credit to Owlish Media for the splash sound.
-Explosion sound credit to [timgormly](https://freesound.org/people/timgormly/) of freesound.org under the [creative commons license](https://creativecommons.org/licenses/by/3.0/)
-Confetti credit to mathusummut and TimothyJones from their [git](https://github.com/mathusummut/confetti.js)
+Sun icon made by Freepik from www.flaticon.com<br/>
+Splash and Boom icons sourced from CLIPARTIX.COM<br/>
+Credit to Owlish Media for the splash sound.<br/>
+Explosion sound credit to [timgormly](https://freesound.org/people/timgormly/) of freesound.org under the [creative commons license](https://creativecommons.org/licenses/by/3.0/)<br/>
+Confetti credit to mathusummut and TimothyJones from their [git](https://github.com/mathusummut/confetti.js)<br/>
 
 ## Authors and acknowledgment
-I am a General Assembly Software Engineering Immmersive fellow.
-This game was created with Vanilla JavaScript, HTML, and CSS.
-A thank you to my cohort mates, instructors, Stoven, and IndigoPunch for the help and nudge in the right direction when I hit any roadblocks.
+I am a General Assembly Software Engineering Immmersive fellow.<br/>
+This game was created with Vanilla JavaScript, HTML, and CSS.<br/>
+A thank you to my cohort mates, instructors, Stoven, and IndigoPunch for the help and nudge in the right direction when I hit any roadblocks.<br/>
 Can you find the dad joke from icanhazdadjoke.com?
 
 ## Project status
