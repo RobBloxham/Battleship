@@ -1,7 +1,8 @@
 # Project Week Battleship Game
 
 ## Description
-This is a single player battleship game.  The object of the game is to sink all of the randomly generate battleships on the grid.  Can you beat your best score?
+This is a single player battleship game.  The object of the game is to sink all of the randomly generate battleships on the grid.  Can you beat your best score?</br>
+Play the game [here](http://battleshipdestruction.surge.sh/)
 
 ## Visuals
 Wireframe
@@ -35,5 +36,6 @@ A thank you to my cohort mates, instructors, Stoven, and IndigoPunch for the hel
 Can you find the dad joke from icanhazdadjoke.com?
 
 ## Project status
-Currently best played at fullscreen on a 1080p resolution, need to build in media query functionality to make it playable on mobile or smaller resolutions<br/>
-The project is complete in its inital form however I may revisit this project to add in 2 player functionality. 
+Currently best played at fullscreen on a 1080p resolution, While the project is complete in its initial form I would like to revisit the following:<br/>
+Build in media query functionality to clean pu the visuals for mobile or smaller resolutions<br/>
+Add in 2 player functionality and make changes to game. <br/>
