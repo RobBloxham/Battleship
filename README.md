@@ -8,7 +8,7 @@ Play the game [here](http://battleshipdestruction.surge.sh/)
 Wireframe
 ![Imgur](https://i.imgur.com/sZAbWvC.png)
 Background
-![background](images/../Images/oceanscene.png)
+![background](Images/lightbg.png)
 
 ## User Expereince 
 AAU(As A User) click on the grid to try and "hit" the battle ship.  
