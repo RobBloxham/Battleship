@@ -1,6 +1,7 @@
 
 /*------Constants------*/
 
+//defines the board piece objects naming convention and what they contain help define items later
 const pieces = {
 'destroyerShip': 'TT',
 'cruiserShip': 'SSS',
@@ -11,6 +12,7 @@ const pieces = {
 
 /*------Variables (state)------*/
 
+//sets the pieces in the board how many of each ship could be used later to make the game easier or more difficult
 let ships = [
   pieces.destroyerShip,
   pieces.cruiserShip,
@@ -32,8 +34,8 @@ const dadJokeEl = document.getElementById('dad-joke')
 const messageEl = document.getElementById('message')
 const square = document.querySelector('board')
 const currScoreEl = document.getElementById('score')
-const SAVE_KEY_SCORE = "highscore"
-const highscore = localStorage.getItem(SAVE_KEY_SCORE)
+const SAVE_KEY_SCORE = "highscore" //key for local storage required
+const highscore = localStorage.getItem(SAVE_KEY_SCORE) 
 const darkBtn = document.getElementById('darkButton')
 const winSound = new Audio('Sounds/win.wav')
 const boom = new Audio('Sounds/boom.wav')
@@ -77,6 +79,7 @@ tsBtn.addEventListener("click", async function(){
 
 /*------Functions------*/
 
+//sets the initial game state upon loading
 init()
 function init(){
   board = [
@@ -110,7 +113,7 @@ function getDirection(){
 }
 
 function generateShips(){
-  let counter
+  let counter // counter is identified to ensure later that the code can properly handle ships colliding
   ships.forEach(ship => {
     if (ship === 'LLLLL'){
       counter = 0
