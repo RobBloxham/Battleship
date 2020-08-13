@@ -13,6 +13,7 @@
 <body id="body">
     <header id="title">
         <h1 id="gname">Battleship Destruction</h1>
+        <p id="score">Score:</p>
         <p id="message">Message</p>
     </header>
    <main><section id="board" class="board">
@@ -119,27 +120,24 @@
         
     </section>
     <button id="darkButton"></button>
-    <p id="score">Score:</p>
+    
 </main> 
     <aside>
         <h1 id="top">Top Score</h1>
         <p id="highscore"></p>
-        <h1 id="directions">How To Play</h1>
-        <p id="rules">
-            <b>The object</b> of the game is to destory the 5 ships on the board: <br>
-        </p>
-        <ul id="rules1">
-            <li>1 Aircraft Carrier that occupies 5 squares </li>
-            <li>1 Battleship that occupies 4 squares</li>
-            <li>1 Cruiser that occupy 3 squares</li>
-            <li>1 Submarine that occupy 3 squares</li>
-            <li>1 Destroyer ship that occupies 2 squares</li>
-        </ul>
-        <p id="rules2">
-            Each ship may occupy spots horizontally or vertically<br><br><br>
+        <h1 id="directions">How To Play</h1><br><br><br>
+        <p class="rules">
+            Destory the 5 ships on the board: <br>
+            Each ship may occupy spots horizontally or vertically
+            <ul>
+                <li>1 Aircraft Carrier that occupies 5 squares </li>
+                <li>1 Battleship that occupies 4 squares</li>
+                <li>1 Cruiser that occupy 3 squares</li>
+                <li>1 Submarine that occupy 3 squares</li>
+                <li>1 Destroyer ship that occupies 2 squares</li>
+            </ul>
             <b>Scoring</b> works as follows:
-        </p>
-            <ul id="rules3">
+            <ul>
                 <li>If you miss a ship: -50</li>
                 <li>If you hit the Destroyer: +1000</li>
                 <li>If you hit the Submarine: +800</li>

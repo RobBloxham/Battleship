@@ -7,7 +7,7 @@ html {
     }
         
 body {
-    background: url(/Images/updatebattleship.png) no-repeat center center fixed; 
+    background: url(/Images/lightbg.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -27,7 +27,7 @@ body {
     --dark-Button-background-image: url(/Images/moon.png);
 }
 body.dark {
-    background: url(/Images/darkbattleship.png) no-repeat center center fixed;
+    background: url(/Images/darkbg.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -40,8 +40,8 @@ header {
     grid-area: header;
     text-align: center;
     position: relative;
-    top: -21%;
-    right: 10%
+    top: -15%;
+    right: 5%
 }
 #title {
     font-size: 42px;
@@ -77,8 +77,8 @@ div {
 }
 #ts {
     position: absolute;
-    bottom: 25%;
-    right: 5%;
+    bottom: 6%;
+    right: 8%;
     background-image: url(/Images/box.png);
     background-color: transparent;
     height: 64px;
@@ -102,15 +102,18 @@ div {
 #board {
     position: absolute;
     top: 30%;
-    right: 55%
+    right: 52%
 }
 #score {
-    position: absolute;
+    position: relative;
     font-size: 30px;
+    right: 70%;
+    top: 80%;
 }
 #message {
     position: relative;
-    top: 15%;
+    top: 8%;
+    right: 2%;
     font-size: 32px;    
 }
 #gname {
@@ -118,41 +121,10 @@ div {
     top: -13%;
     font-size: 60px;
 }
-#rules {
-    text-align: left;
-    position: absolute;
-    bottom: 67%;
-    right: 3%;
-    font-size: 18px;
-    font-weight: 700;
-}
-#rules1 {
-    text-align: left;
-    position: absolute;
-    bottom: 51%;
-    right: 10%;
-    font-size: 18px;
-    font-weight: 500;
-}
-#rules2 {
-    text-align: left;
-    position: absolute;
-    bottom: 38%;
-    right: 7%;
-    font-size: 18px;
-    font-weight: 500;
-}
-#rules3 {
-    text-align: left;
-    position: absolute;
-    bottom: 20%;
-    right: 12.5%;
-    font-size: 18px;
-    font-weight: 500;
-}
+
 #score {
     position: absolute;
-    top: 13%;
+    top: 40%;
     left: 1%
 }
 #darkButton{
