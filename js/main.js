@@ -94,6 +94,7 @@ function init(){
   ]
   messageEl.innerHTML = "Fire your first missile!"
   currScoreEl.innerHTML = "Current Score: 0"
+  dadJokeEl.innerHTML = ""
   winner = null
   squaresEl.forEach(element => {
     element.style.background = ''
