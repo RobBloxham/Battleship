@@ -81,6 +81,7 @@ tsBtn.addEventListener("click", async function(){
 
 //sets the initial game state upon loading
 init()
+checkUserColorSchemePreference()
 function init(){
   board = [
     [null, null, null, null, null, null, null, null, null, null], 
@@ -104,7 +105,6 @@ function init(){
   winCnt = 0
   score = 0
   generateShips()
-  checkUserColorSchemePreference()
   console.log(board)
 }
 
