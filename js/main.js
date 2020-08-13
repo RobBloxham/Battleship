@@ -28,7 +28,8 @@ let shipSize = ships.map(size => size.length)
 let winner, board, clicked, boardX, boardY, winCnt, score, jokes = []
 
 /*------Cached Element References------*/
-const highScoreEl = document.getElementById('highscore')
+
+const highScoreEl = document.getElementById('hscore')
 const squaresEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
 const tsBtn = document.getElementById('ts')
@@ -50,6 +51,7 @@ const colorScheme = {
       body.setAttribute("class", color)
   }
 }
+
 /*------Event Listeners------*/
 
 resetBtn.addEventListener('click', init)
@@ -77,7 +79,9 @@ tsBtn.addEventListener("click", async function(){
   let dadjoke = jokes[jokes.length - 1]
   dadJokeEl.innerHTML = dadjoke.joke
 })
+
 /*------Functions------*/
+
 init()
 function init(){
   board = [
@@ -102,6 +106,7 @@ function init(){
   winCnt = 0
   score = 0
   generateShips()
+  checkUserColorSchemePreference()
   console.log(board)
 }
 
@@ -348,4 +353,3 @@ function checkUserColorSchemePreference() {
     colorScheme.changeColorScheme()
   }
 }
-checkUserColorSchemePreference()

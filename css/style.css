@@ -87,12 +87,13 @@ div {
 }
 #top {
     position: absolute;
-    top: 1%;
+    top: 5%;
     font-size: 30px;
 }
-#highscore {
+#hscore {
+    font-size: 30px;
     position: absolute;
-    top: 10%
+    top: 10%;
 }
 #directions {
     position: absolute;
