@@ -310,11 +310,12 @@ function render(e){
     winner = "win"
     messageEl.innerHTML = 'You Win!!!!'
     currScoreEl.innerHTML = `Final Score: ${score}`
+    if (score > highscore){
+      highScoreEl.innerHTML = `${score}`
+    }
     confetti.start(3800)
     setTimeout(function(){winSound.play();},0);
   } 
-  if (score > highscore)
-  highScoreEl.innerHTML = `${score}`
 }
 
 function checkUserColorSchemePreference() {

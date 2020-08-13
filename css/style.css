@@ -27,7 +27,11 @@ body {
     --dark-Button-background-image: url(/Images/moon.png);
 }
 body.dark {
-    background: url(/Images/darkbattleship.png);
+    background: url(/Images/darkbattleship.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: rgb(232, 230, 199);
     --dark-Button-background-image: url(/Images/sun.png);
 
