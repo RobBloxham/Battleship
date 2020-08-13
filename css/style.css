@@ -59,7 +59,7 @@ section.board {
     grid-template-rows: repeat(10, 6vmin);
     grid-template-columns: repeat(10, 6vmin);
     grid-gap: 0vmin;
-    background: no-repeat center center fixed;
+    background-image: no-repeat center center fixed;
     
 }
 
@@ -173,4 +173,10 @@ div {
     position: relative;
     top: -42%;
     left: 8%;
+}
+#dad-joke {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    font-size: 30px;
 }

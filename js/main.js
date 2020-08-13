@@ -25,12 +25,14 @@ let ships = [
 ]
 
 let shipSize = ships.map(size => size.length)
-let winner, board, clicked, boardX, boardY, winCnt, score
+let winner, board, clicked, boardX, boardY, winCnt, score, jokes = []
 
 /*------Cached Element References------*/
 const highScoreEl = document.getElementById('highscore')
 const squaresEl = document.querySelectorAll('div')
 const resetBtn = document.getElementById('resetButton')
+const tsBtn = document.getElementById('ts')
+const dadJokeEl = document.getElementById('dad-joke')
 const messageEl = document.getElementById('message')
 const square = document.querySelector('board')
 const currScoreEl = document.getElementById('score')
@@ -53,6 +55,28 @@ const colorScheme = {
 resetBtn.addEventListener('click', init)
 document.querySelector('.board').addEventListener('click', onClick)
 darkBtn.addEventListener('click', colorScheme.changeColorScheme)
+tsBtn.addEventListener("click", async function(){
+  await fetch("https://icanhazdadjoke.com/",{
+      method: 'get',
+      headers: {
+          'Accept': 'application/json',
+      }
+  })
+  .then((response) => {
+      return response.json()
+  })
+  .then((data) => {
+      let newJoke = {}
+      newJoke["joke"] = data.joke
+    jokes.push(newJoke)
+    console.log(jokes)
+  })
+  .catch((err) => {
+      console.log(err)
+  })
+  let dadjoke = jokes[jokes.length - 1]
+  dadJokeEl.innerHTML = dadjoke.joke
+})
 /*------Functions------*/
 init()
 function init(){
