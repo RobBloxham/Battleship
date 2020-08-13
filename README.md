@@ -35,4 +35,5 @@ A thank you to my cohort mates, instructors, Stoven, and IndigoPunch for the hel
 Can you find the dad joke from icanhazdadjoke.com?
 
 ## Project status
+Currently best played at fullscreen on a 1080p resolution, need to build in media query functionality to make it playable on mobile or smaller resolutions<br/>
 The project is complete in its inital form however I may revisit this project to add in 2 player functionality. 
