@@ -16,7 +16,6 @@ let ships = [
   pieces.battleShip,
   pieces.carrierShip
 ]
-
 let shipSize = ships.map(size => size.length)
 let winner, board, clicked, boardX, boardY, winCnt, score, jokes = []
 
