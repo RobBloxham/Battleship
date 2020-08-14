@@ -125,7 +125,7 @@ function generateShips(){
     }
     else if (ship === 'MMMM'){
       counter = 0
-    while (counter < 1 ) {
+      while (counter < 1 ) {
         if (generateBattleship()){
           counter += 1
         }
@@ -133,7 +133,7 @@ function generateShips(){
     }
     else if (ship === 'SSS'){
       counter = 0
-    while (counter < 1 ) {
+      while (counter < 1 ) {
         if (generateCruiser()){
           counter += 1
         }
@@ -141,7 +141,7 @@ function generateShips(){
     }
     else if (ship === 'UUU'){
       counter = 0
-    while (counter < 1 ) {
+      while (counter < 1 ) {
         if (generateSub()){
           counter += 1
         }
@@ -149,7 +149,7 @@ function generateShips(){
     }
     else if (ship === 'TT'){
       counter = 0
-    while (counter < 1 ) {
+      while (counter < 1 ) {
         if (generateDestroyer()){
           counter += 1
         }
@@ -161,12 +161,12 @@ function generateShips(){
 function generateCarrier(){
   direction = getDirection()
   if (direction === 1){
-  locX = Math.floor(Math.random() * 6)
-  locY = Math.floor(Math.random() * 10) 
+    locX = Math.floor(Math.random() * 6)
+    locY = Math.floor(Math.random() * 10) 
   } else if (direction !== 1){
-    locX = Math.floor(Math.random() * 10)
-    locY = Math.floor(Math.random() * 6) 
-  }
+      locX = Math.floor(Math.random() * 10)
+    l ocY = Math.floor(Math.random() * 6) 
+    }
   if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null && board[locY][locX + 3] === null && board[locY][locX + 4] === null){
     board[locY].splice(locX, 1, "L")
     board[locY].splice((locX+1), 1, "L")
@@ -187,8 +187,8 @@ function generateCarrier(){
 function generateBattleship(){
   direction = getDirection()
   if (direction === 1){
-  locX = Math.floor(Math.random() * 7)
-  locY = Math.floor(Math.random() * 10) 
+    locX = Math.floor(Math.random() * 7)
+    locY = Math.floor(Math.random() * 10) 
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 10)
     locY = Math.floor(Math.random() * 7) 
@@ -211,8 +211,8 @@ function generateBattleship(){
 function generateCruiser(){
   direction = getDirection()
   if (direction === 1){
-  locX = Math.floor(Math.random() * 8)
-  locY = Math.floor(Math.random() * 10) 
+    locX = Math.floor(Math.random() * 8)
+    locY = Math.floor(Math.random() * 10) 
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 10)
     locY = Math.floor(Math.random() * 8) 
@@ -233,8 +233,8 @@ function generateCruiser(){
 function generateSub(){
   direction = getDirection()
   if (direction === 1){
-  locX = Math.floor(Math.random() * 8)
-  locY = Math.floor(Math.random() * 10) 
+    locX = Math.floor(Math.random() * 8)
+    locY = Math.floor(Math.random() * 10) 
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 10)
     locY = Math.floor(Math.random() * 8) 
@@ -255,8 +255,8 @@ function generateSub(){
 function generateDestroyer(){
   direction = getDirection()
   if (direction === 1){
-  locX = Math.floor(Math.random() * 9)
-  locY = Math.floor(Math.random() * 10) 
+    locX = Math.floor(Math.random() * 9)
+    locY = Math.floor(Math.random() * 10) 
   } else if (direction !== 1){
     locX = Math.floor(Math.random() * 10)
     locY = Math.floor(Math.random() * 9) 
@@ -274,11 +274,11 @@ function generateDestroyer(){
 
 function onClick(e){
   if (winner === null){
-  let clicked = []
-  clicked.push(e.target.id.split(', '))
-  boardY = parseInt(clicked[0][0])
-  boardX = parseInt(clicked[0][1])
-  render(e)
+    let clicked = []
+    clicked.push(e.target.id.split(', '))
+    boardY = parseInt(clicked[0][0])
+    boardX = parseInt(clicked[0][1])
+    render(e)
   }
   else {
     return board
