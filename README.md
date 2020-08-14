@@ -34,7 +34,7 @@ Confetti credit to mathusummut and TimothyJones from their [git](https://github.
 ## Authors and acknowledgment
 I am a General Assembly Software Engineering Immmersive fellow.<br/>
 This game was created with Vanilla JavaScript, HTML, and CSS with Bootstrap.<br/>
-A thank you to my cohort mates, instructors, Stoven, and IndigoPunch for the help and nudge in the right direction when I hit any roadblocks.<br/>
+A thank you to my cohort mates, instructors, Makosai, Stoven, and IndigoPunch for the help and nudge in the right direction when I hit any roadblocks.<br/>
 Can you find the dad joke from icanhazdadjoke.com?<br/>
 
 ## Project status
