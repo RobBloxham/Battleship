@@ -39,5 +39,5 @@ Can you find the dad joke from icanhazdadjoke.com?<br/>
 
 ## Project status
 Currently best played at fullscreen on a 1080p resolution, While the project is complete in its initial form I would like to revisit the following:<br/>
-Build in media query functionality to clean pu the visuals for mobile or smaller resolutions<br/>
+Build in media query functionality to clean up the visuals for mobile or smaller resolutions<br/>
 Add in 2 player functionality and make changes to game. <br/>
