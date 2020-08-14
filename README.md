@@ -25,7 +25,7 @@ AAU when you win you will have an indication that declares as such, and you can 
 AAU if you prefer light or dark mode you can click on the Sun/Moon icon and swithc the view. <br/> 
 
 ## Contributing
-Sun icon made by Freepik from www.flaticon.com<br/>
+Sun and Moon icons made by Freepik from www.flaticon.com<br/>
 Splash and Boom icons sourced from CLIPARTIX.COM<br/>
 Credit to Owlish Media for the splash sound.<br/>
 Explosion sound credit to [timgormly](https://freesound.org/people/timgormly/) of freesound.org under the [creative commons license](https://creativecommons.org/licenses/by/3.0/)<br/>
