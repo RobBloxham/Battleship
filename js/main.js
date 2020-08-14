@@ -1,6 +1,4 @@
 
-/*------Constants------*/
-
 //defines the board piece objects naming convention and what they contain help define items later
 const pieces = {
 'destroyerShip': 'TT',
@@ -9,8 +7,6 @@ const pieces = {
 'battleShip': 'MMMM',
 'carrierShip': 'LLLLL'
 }
-
-/*------Variables (state)------*/
 
 //sets the pieces in the board how many of each ship could be used later to make the game easier or more difficult
 let ships = [
@@ -23,8 +19,6 @@ let ships = [
 
 let shipSize = ships.map(size => size.length)
 let winner, board, clicked, boardX, boardY, winCnt, score, jokes = []
-
-/*------Cached Element References------*/
 
 const highScoreEl = document.getElementById('hscore')
 const squaresEl = document.querySelectorAll('div')
@@ -48,8 +42,6 @@ const colorScheme = {
       body.setAttribute("class", color)
   }
 }
-
-/*------Event Listeners------*/
 
 resetBtn.addEventListener('click', init)
 document.querySelector('.board').addEventListener('click', onClick)
@@ -77,11 +69,10 @@ tsBtn.addEventListener("click", async function(){
   dadJokeEl.innerHTML = dadjoke.joke
 })
 
-/*------Functions------*/
-
 //sets the initial game state upon loading
 init()
 checkUserColorSchemePreference()
+
 function init(){
   board = [
     [null, null, null, null, null, null, null, null, null, null], 
@@ -165,7 +156,7 @@ function generateCarrier(){
     locY = Math.floor(Math.random() * 10) 
   } else if (direction !== 1){
       locX = Math.floor(Math.random() * 10)
-    l ocY = Math.floor(Math.random() * 6) 
+      locY = Math.floor(Math.random() * 6) 
     }
   if (direction === 1 && board[locY][locX] === null && board[locY][locX + 1] === null && board[locY][locX + 2] === null && board[locY][locX + 3] === null && board[locY][locX + 4] === null){
     board[locY].splice(locX, 1, "L")
