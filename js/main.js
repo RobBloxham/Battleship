@@ -95,7 +95,6 @@ function init(){
   winCnt = 0
   score = 0
   generateShips()
-  console.log(board)
 }
 
 function getDirection(){
