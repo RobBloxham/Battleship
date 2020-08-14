@@ -22,7 +22,7 @@ The field will have the following pieces that all need to be destroyed in order 
 AAU you will see every grid you have clicked if that "shot" missed there will be an item to indicate a miss.<br/>
 AAU if the shot hits you will see an item indicate they hit.<br/>
 AAU when you win you will have an indication that declares as such, and you can press reset to play again.<br/>
-AAU if you prefer light or dark mode you can click on the Sun/Moon icon and swithc the view. <br/> 
+AAU if you prefer light or dark mode you can click on the Sun/Moon icon and switch the view. <br/> 
 
 ## Contributing
 Sun and Moon icons made by Freepik from www.flaticon.com<br/>
