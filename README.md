@@ -9,6 +9,8 @@ Wireframe
 ![Imgur](https://i.imgur.com/sZAbWvC.png)
 Background
 ![background](Images/lightbg.png)
+Finished
+![example](Images/Screenshot.png)
 
 ## User Expereince 
 AAU(As A User) click on the grid to try and "hit" the battle ship.  
